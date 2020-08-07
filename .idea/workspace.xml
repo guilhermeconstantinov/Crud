@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class/Connect.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Estudo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -55,7 +56,7 @@
       <updated>1596743723049</updated>
       <workItem from="1596743725364" duration="5950000" />
       <workItem from="1596796415058" duration="4778000" />
-      <workItem from="1596821230996" duration="2438000" />
+      <workItem from="1596821230996" duration="3993000" />
     </task>
     <servers />
   </component>
@@ -63,6 +64,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="59" y="205" key="#SQL_Dialects" timestamp="1596827484721">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="59" y="205" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1596827484721" />
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596827492362">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1596827492362" />
     <state x="454" y="292" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596825235465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
