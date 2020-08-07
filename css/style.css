@@ -1,0 +1,128 @@
+*{margin:0;padding: 0;box-sizing: border-box}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: -1000;
+    font-family: "Segoe UI",sans-serif;
+
+}
+div#container {
+    width: 900px;
+    height: 500px;
+    background-color: #8F2828;
+    position: absolute;
+    box-shadow:  -5px 10px 20px rgba(0,0,0,.38);
+    z-index: 0;
+}
+
+div#container:after{
+    content:"";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("../img/background-login.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: right;
+    opacity: 0.2;
+    z-index:-1;
+
+}
+section#login-panel{
+    position: absolute;
+    width: 280px;
+    background-color: white;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+section#login-panel #logo{
+
+
+    color:#F2893E;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    height: 50px;
+    justify-content: center;
+
+}
+
+section#login-panel #logo span{
+
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+    background-image: url("../img/icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+
+}
+section#login-panel form{
+
+    width: 100%;
+    margin-top:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+section#login-panel form #input-group{
+    width: 80%;
+}
+
+section#login-panel form #input-group input{
+
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+
+}
+
+section#login-panel form #input-group #button-group{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top:10px;
+
+
+}
+section#login-panel form #input-group #button-group button, #button-group a{
+
+    width: 100px;
+    height: 35px;
+    border-radius:3px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+}
+.b-red{
+
+    background-color:#AC3B3B;
+    color:white;
+    border:2px solid #AC3B3B;
+
+}
+.b-red-b{
+    border:2px solid #AC3B3B;
+    background-color:white;
+    color:#AC3B3B;
+}
+
+
+
+
