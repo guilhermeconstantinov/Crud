@@ -1,6 +1,7 @@
 *{margin:0;padding: 0;box-sizing: border-box}
 
 body{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +17,7 @@ div#container {
     position: absolute;
     box-shadow:  -5px 10px 20px rgba(0,0,0,.38);
     z-index: 0;
+
 }
 
 div#container:after{
@@ -87,6 +89,7 @@ section#login-panel form #input-group input{
     margin-bottom: 10px;
     padding-left: 10px;
     box-sizing: border-box;
+    outline-color: rgba(143, 40, 40,0.8);
 
 }
 
@@ -121,6 +124,29 @@ section#login-panel form #input-group #button-group button, #button-group a{
     border:2px solid #AC3B3B;
     background-color:white;
     color:#AC3B3B;
+}
+
+@media screen and (max-width:900px) {
+    div#container{
+        width: 90%;
+
+    }
+
+}
+@media screen and (max-width:500px) {
+    section#login-panel{
+        width: 100%;
+        height: 100%;
+
+    }
+    div#container{
+        width: 100%;
+        height: 100%;
+    }
+
+    section#login-panel form #input-group{
+        width: 60%;
+    }
 }
 
 

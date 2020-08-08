@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['login']) && isset($_SESSION['password'])){
+        header('location: dashboard.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -5,20 +14,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script></script>
     </head>
     <body>
         <div id="container">
             <section id="login-panel">
                 <h1 id="logo"><span></span>Estagiando</h1>
-                <form>
+                <form action="controller/login.php" method="POST">
                     <div id="input-group">
-                        <input type="text" placeholder="Email Address" name="login-email">
+                        <input type="email" placeholder="Email Address" id="login-email" name="login-email">
                         <input type="password" placeholder="Password" name="login-password">
                         <div id="button-group">
                             <a href="" class="b-red-b">Register</a>
-                            <button class="b-red">Sign in</button>
+                            <button name="submit" class="b-red">Sign in</button>
                         </div>
-                    </div>
+                    </div><br>
+                    <p><?php  if(isset($_SESSION['error']['login'])){
+                            foreach ($_SESSION['error']['login'] as $value){
+                                echo "{$value}"."<br>";
+                            }
+                            unset($_SESSION['error']);
+                        } ?> </p>
 
                     </form>
             </section>
