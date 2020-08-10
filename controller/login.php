@@ -2,11 +2,11 @@
     session_start();
     require_once '../class/User.php';
     require_once '../class/UserDao.php';
+
     if(!isset($_SESSION['login'])){
-        header('location: index.php');
+        header('location: ../index.php');
     }
 
-    session_unset();
 
     $user = new User();
     $userDao = new UserDao();
@@ -34,20 +34,20 @@
         if(isset($_SESSION['error'])){
             header('location: ../index.php');
         }else{
+
+
             if($date = $userDao->login($user)){
-                $_SESSION['id'] = $date['id'];
-                $_SESSION['login'] = $date['login'];
-                $_SESSION['password'] = $date['senha'];
+
+                $_SESSION['id'] = $date[0]['id'];
+                $_SESSION['login'] = $date[0]['login'];
+                $_SESSION['password'] = $date[0]['senha'];
+                $_SESSION['admin'] = $date[0]['admin'];
                 header('location: ../dashboard.php');
             }else{
                 $_SESSION['error']['login'][] = "Email ou senha incorretos";
                 header('location: ../index.php');
             }
         }
-
-
-
-
 
 
     }

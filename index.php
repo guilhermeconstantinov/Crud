@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['login']) && isset($_SESSION['password'])){
+    if(isset($_SESSION['login'])){
         header('location: dashboard.php');
     }
 
@@ -20,23 +20,15 @@
         <div id="container">
             <section id="login-panel">
                 <h1 id="logo"><span></span>Estagiando</h1>
-                <form action="controller/login.php" method="POST">
-                    <div id="input-group">
-                        <input type="email" placeholder="Endereço de e-mail" id="login-email" name="login-email">
-                        <input type="password" placeholder="Senha" name="login-password">
-                        <div id="button-group">
-                            <a href="" class="b-red-b">Cadastrar</a>
-                            <button name="submit" class="b-red">Entrar</button>
-                        </div>
-                    </div><br>
-                    <p><?php  if(isset($_SESSION['error']['login'])){
-                            foreach ($_SESSION['error']['login'] as $value){
-                                echo "{$value}"."<br>";
-                            }
-                            unset($_SESSION['error']);
-                        } ?> </p>
 
-                    </form>
+                <?php if(isset($_GET['r']) && $_GET['r'] == 'register'){
+                     include 'form-register.php';
+
+                }else{
+                    include 'form-login.php';
+
+                }
+                ?>
             </section>
         </div>
     </body>

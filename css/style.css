@@ -93,15 +93,21 @@ section#login-panel form #input-group input{
 
 }
 
-section#login-panel form #input-group #button-group{
+section#login-panel form #input-group .button-group{
     display: flex;
-    justify-content: space-between;
     width: 100%;
     margin-top:10px;
 
 
+
 }
-section#login-panel form #input-group #button-group button, #button-group a{
+.space-b{
+    justify-content: space-between;
+}
+.right{
+    justify-content: flex-end;
+}
+section#login-panel form #input-group .button-group button, .button-group a{
 
     width: 100px;
     height: 35px;
