@@ -41,14 +41,11 @@
             $stmt->execute();
         }
         public function login(User $user){
-             echo $user->getLogin();
-             echo $user->getPassword();
              $sql = "Select id, login, senha from usuarios_sistemas where login = ? and senha = ?";
              $stmt = Connect::Conn()->prepare($sql);
              $stmt->bindValue(1,$user->getLogin());
              $stmt->bindValue(2,$user->getPassword());
              $stmt->execute();
-
 
             if($stmt->rowCount()>0){
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);

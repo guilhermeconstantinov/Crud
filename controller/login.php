@@ -42,7 +42,7 @@
             }else{
                 $_SESSION['error']['login'][] = "Email ou senha incorretos";
                 header('location: ../index.php');
-            };
+            }
         }
 
 
