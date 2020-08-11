@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-register.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -45,6 +47,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guilh\Desktop\Crud\form" />
       <recent name="C:\Users\guilh\Desktop\Crud\js" />
       <recent name="C:\Users\guilh\Desktop\Crud\css" />
     </key>
@@ -64,7 +67,11 @@
       <workItem from="1596821230996" duration="5601000" />
       <workItem from="1596895892063" duration="22904000" />
       <workItem from="1596987653379" duration="6268000" />
-      <workItem from="1597057697211" duration="16655000" />
+      <workItem from="1597057697211" duration="30004000" />
+      <workItem from="1597095296914" duration="454000" />
+      <workItem from="1597096280666" duration="159000" />
+      <workItem from="1597099971806" duration="680000" />
+      <workItem from="1597143621382" duration="15144000" />
     </task>
     <servers />
   </component>

@@ -22,10 +22,10 @@
                 <h1 id="logo"><span></span>Estagiando</h1>
 
                 <?php if(isset($_GET['r']) && $_GET['r'] == 'register'){
-                     include 'form-register.php';
+                     include 'form/form-register.php';
 
                 }else{
-                    include 'form-login.php';
+                    include 'form/form-login.php';
 
                 }
                 ?>

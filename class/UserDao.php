@@ -4,6 +4,7 @@
     class UserDao{
 
          public function create(User $user){
+
              $sql = "INSERT INTO usuarios_sistemas(nome,login,senha) values(?,?,?)";
              $stmt = Connect::Conn()->prepare($sql);
              $stmt->bindValue(1,$user->getName());
