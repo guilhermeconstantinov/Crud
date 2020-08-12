@@ -5,7 +5,7 @@
     require_once '../class/UserDao.php';
 
     if(isset($_SESSION['login'])){
-        header('location: ../dashboard.php');
+        header('location: /dashboard.php');
     }
 
     $user =  new User();
@@ -51,12 +51,18 @@
 
         if(isset($_SESSION['error']['register'])){
 
-            header('location: ../index.php?r=register');
+            header('location: index.php?r=register');
 
         }else{
 
-            $useDao->create($user);
-            header('location: ../index.php');
+
+            if($date= $useDao->create($user)){
+                header('location: ../index.php');
+            }else{
+                $_SESSION['error']['register'][] = "Usuário já existe";
+                header('location: ../index.php?r=register');
+            }
+
         }
 
     }

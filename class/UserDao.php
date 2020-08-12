@@ -4,13 +4,26 @@
     class UserDao{
 
          public function create(User $user){
+             $sql = "SELECT COUNT(login) FROM usuarios_sistemas where login = ?";
+             $select = Connect::Conn()->prepare($sql);
+             $select->bindValue(1,$user->getLogin());
+             $select->execute();
+             $result = $select->fetchColumn(0);
 
-             $sql = "INSERT INTO usuarios_sistemas(nome,login,senha) values(?,?,?)";
-             $stmt = Connect::Conn()->prepare($sql);
-             $stmt->bindValue(1,$user->getName());
-             $stmt->bindValue(2,$user->getLogin());
-             $stmt->bindValue(3,$user->getPassword());
-             $stmt->execute();
+
+             if(!$result){
+                 $sql = "INSERT INTO usuarios_sistemas(nome,login,senha) values(?,?,?)";
+                 $stmt = Connect::Conn()->prepare($sql);
+                 $stmt->bindValue(1,$user->getName());
+                 $stmt->bindValue(2,$user->getLogin());
+                 $stmt->bindValue(3,$user->getPassword());
+                 $stmt->execute();
+                 return 1;
+             }
+
+             return 0;
+
+
          }
 
          public function readAll(){

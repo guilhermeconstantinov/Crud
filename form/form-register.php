@@ -1,4 +1,4 @@
- <form action="../controller/register.php" method="POST">
+ <form action="controller/register.php" method="POST">
 
     <div id="input-group">
 

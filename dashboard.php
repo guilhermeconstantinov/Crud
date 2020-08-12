@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login'])){
+        header('location: index.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,9 +20,11 @@
                 <header>
                     <h1 id="logo"><span></span>Estagiando</h1>
                     <div id="avatar"></div>
-                    <p>Guilherme Viola Constantinov</p>
-                    <p>Admin</p>
-                    <button id="btn-resp"></button>
+                    <div id="group-header">
+                        <p>Guilherme Viola Constantinov</p>
+                        <p>Admin</p>
+                        <button id="btn-resp"></button>
+                    </div>
                 </header>
 
                 <nav id="menu">
@@ -30,16 +39,38 @@
             </section>
 
             <section id="content">
-                <p>teste</p>
+                    <?php
+                        if(isset($_GET['f'])){
+                            switch ($_GET['f']){
+                                case 'add_acesso':
+                                    include 'form/form-add.php';
+                                    break;
+                                case 'consultar':
+                                    include 'form/form-consult.php';
+                                    break;
+                                case 'perfil':
+                                    include 'form/form-perfil.php';
+                                    break;
+                                case 'deslogar':
+                                    session_unset();
+                                    session_destroy();
+                                    header('location: index.php');
+                                    break;
+
+                            }
+                        }
+
+                    ?>
+                <p></p>
             </section>
 
         </div>
         <script>
             var btn =  document.getElementById('btn-resp');
             var menu = document.getElementById('menu');
-
+            var JWidth = window.innerWidth;
             window.addEventListener('resize',()=>{
-                var JWidth = window.innerWidth;
+                JWidth = window.innerWidth;
 
                 if(JWidth>600){
                     menu.style.display = "block";
@@ -52,8 +83,11 @@
 
                 if(menu.style.display == 'block'){
                     menu.style.display = "none";
+
                 }else{
                     menu.style.display = "block";
+
+
                 }
             });
         </script>
@@ -63,14 +97,5 @@
 
 
 
-<!--<a href="dashboard.php?f=deslogar">deslogar</a>
 
-session_start();
-if(isset($_GET['f'])){
-
-   session_unset();
-  session_destroy();
-    var_dump($_SESSION);
-    #header('location: index.php');
-}
 
