@@ -1,8 +1,17 @@
 <?php
     session_start();
-    if(!isset($_SESSION['login'])){
+    require_once 'class/UserDao.php';
+
+
+    if(!isset($_SESSION['id'])){
         header('location: index.php');
+    }else{
+        $userDao = new UserDao();
+        $date = $userDao->readUser($_SESSION['id']);
+
+
     }
+
 
 ?>
 <!DOCTYPE html>
@@ -21,8 +30,8 @@
                     <h1 id="logo"><span></span>Estagiando</h1>
                     <div id="avatar"></div>
                     <div id="group-header">
-                        <p>Guilherme Viola Constantinov</p>
-                        <p>Admin</p>
+                        <p><?php echo $date[0]['nome'];?></p>
+                        <p><?php echo ($date[0]['admin'] == 0)?"Comum":"Admin";?></p>
                         <button id="btn-resp"></button>
                     </div>
                 </header>
@@ -40,6 +49,7 @@
 
             <section id="content">
                     <?php
+
                         if(isset($_GET['f'])){
                             switch ($_GET['f']){
                                 case 'add_acesso':
@@ -56,10 +66,8 @@
                                     session_destroy();
                                     header('location: index.php');
                                     break;
-
                             }
                         }
-
                     ?>
                 <p></p>
             </section>

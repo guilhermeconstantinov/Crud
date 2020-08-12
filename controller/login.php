@@ -39,9 +39,7 @@
             if($date = $userDao->login($user)){
 
                 $_SESSION['id'] = $date[0]['id'];
-                $_SESSION['login'] = $date[0]['login'];
-                $_SESSION['password'] = $date[0]['senha'];
-                $_SESSION['admin'] = $date[0]['admin'];
+
                 header('location: ../dashboard.php');
             }else{
                 $_SESSION['error']['login'][] = "Email ou senha incorretos";

@@ -4,11 +4,12 @@
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-register.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-perfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Class1" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
@@ -76,7 +77,8 @@
       <workItem from="1597181095651" duration="250000" />
       <workItem from="1597181415575" duration="3446000" />
       <workItem from="1597224787872" duration="6951000" />
-      <workItem from="1597232421009" duration="1577000" />
+      <workItem from="1597232421009" duration="2245000" />
+      <workItem from="1597235755700" duration="8747000" />
     </task>
     <servers />
   </component>
@@ -104,10 +106,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="454" y="292" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1596825235465" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597231158552">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597234714122">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597231158552" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597234714122" />
     <state x="495" y="87" key="NewPhpClassDialog" timestamp="1597005887910">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -4,7 +4,7 @@
     require_once '../class/User.php';
     require_once '../class/UserDao.php';
 
-    if(isset($_SESSION['login'])){
+    if(isset($_SESSION['id'])){
         header('location: /dashboard.php');
     }
 

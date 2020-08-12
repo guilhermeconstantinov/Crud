@@ -12,9 +12,10 @@ section#panel-dashboard{
 
     min-width: 250px;
     height: 100%;
-    box-shadow: 2px 1px 5px rgba(0,0,0,.4);
+    box-shadow: 5px 0px 5px rgba(0,0,0,.2);
+    z-index: 1000;
 }
-#logo{
+h1#logo{
     color:#F2893E;
     display: flex;
     align-items: center;
@@ -151,9 +152,13 @@ nav#menu span{
 /* Menu finalizado aqui */
 
 section#content{
-    background-color: #e5e5e5;
+    background-color: white;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:30px;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -219,3 +224,57 @@ section#content{
     }
 
 }
+
+/*ESTILOS DO FORMULARIO*/
+.form-group{
+
+    width: 70%;
+}
+
+form hr{
+    width: 30%;
+    margin: 20px auto;
+    border-color: #cd4848;
+
+}
+.form-group h1{
+    font-size: 20px;
+    margin: 20px 0;
+
+}
+.form-group h2{
+    font-size: 15px;
+    margin: 10px 0;
+}
+form input{
+
+    width: 100%;
+    height: 35px;
+    margin: 10px 0;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline-color: rgba(143, 40, 40,0.8);
+
+}
+form p{
+    margin: 20px 0;
+}
+
+.btn-group{
+    margin: 20px 0;
+    display: flex;
+}
+.btn-right{
+    justify-content: flex-end;
+}
+.btn-default{
+    cursor:pointer;
+    border-radius:4px;
+    padding: 10px;
+    border-style: none;
+}
+.btn-save{
+    background-color: #cd4848;
+    color:white;
+}
+

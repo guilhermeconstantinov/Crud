@@ -11,7 +11,7 @@
              $result = $select->fetchColumn(0);
 
 
-             if(!$result){
+             if($result == 0){
                  $sql = "INSERT INTO usuarios_sistemas(nome,login,senha) values(?,?,?)";
                  $stmt = Connect::Conn()->prepare($sql);
                  $stmt->bindValue(1,$user->getName());
@@ -22,13 +22,12 @@
              }
 
              return 0;
-
-
          }
 
-         public function readAll(){
-            $sql = "SELECT * FROM usuarios_sistemas where admin = '0'";
+         public function readUser($id){
+            $sql = "SELECT * FROM usuarios_sistemas where id = ?";
             $stmt =  Connect::Conn()->prepare($sql);
+            $stmt->bindValue(1, $id);
             $stmt->execute();
 
             if($stmt->rowCount()>0){
@@ -55,14 +54,18 @@
             $stmt->execute();
         }
         public function login(User $user){
-             $sql = "Select id, login, senha from usuarios_sistemas where login = ? and senha = ?";
+             $sql = "Select * from usuarios_sistemas where login = ? and senha = ?";
              $stmt = Connect::Conn()->prepare($sql);
              $stmt->bindValue(1,$user->getLogin());
              $stmt->bindValue(2,$user->getPassword());
              $stmt->execute();
 
             if($stmt->rowCount()>0){
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $date = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    return $date;
+
+
             }
             return 0;
         }
