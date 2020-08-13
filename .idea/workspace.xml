@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-perfil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -78,7 +79,9 @@
       <workItem from="1597181415575" duration="3446000" />
       <workItem from="1597224787872" duration="6951000" />
       <workItem from="1597232421009" duration="2245000" />
-      <workItem from="1597235755700" duration="8747000" />
+      <workItem from="1597235755700" duration="13512000" />
+      <workItem from="1597269577089" duration="5959000" />
+      <workItem from="1597314758114" duration="22603000" />
     </task>
     <servers />
   </component>
@@ -114,13 +117,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1597005887910" />
-    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597225772426">
+    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597273670952">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597225772426" />
+    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597273670952" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1597227513627">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597227513627" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1597325426296">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1597325426296" />
   </component>
 </project>

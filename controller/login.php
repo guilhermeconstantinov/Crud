@@ -38,7 +38,7 @@
 
             if($date = $userDao->login($user)){
 
-                $_SESSION['id'] = $date[0]['id'];
+                $_SESSION['id'] = $date;
 
                 header('location: ../dashboard.php');
             }else{

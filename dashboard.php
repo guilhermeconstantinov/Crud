@@ -1,13 +1,14 @@
 <?php
     session_start();
     require_once 'class/UserDao.php';
+    require_once 'class/User.php';
 
 
     if(!isset($_SESSION['id'])){
         header('location: index.php');
     }else{
         $userDao = new UserDao();
-        $date = $userDao->readUser($_SESSION['id']);
+        $user = $userDao->readUser($_SESSION['id']);
 
 
     }
@@ -30,8 +31,8 @@
                     <h1 id="logo"><span></span>Estagiando</h1>
                     <div id="avatar"></div>
                     <div id="group-header">
-                        <p><?php echo $date[0]['nome'];?></p>
-                        <p><?php echo ($date[0]['admin'] == 0)?"Comum":"Admin";?></p>
+                        <p><?php echo $user->getName();?></p>
+                        <p><?php echo ($user->getLogin() == 0)?"Comum":"Admin";?></p>
                         <button id="btn-resp"></button>
                     </div>
                 </header>

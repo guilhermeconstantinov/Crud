@@ -25,24 +25,35 @@
          }
 
          public function readUser($id){
+
             $sql = "SELECT * FROM usuarios_sistemas where id = ?";
             $stmt =  Connect::Conn()->prepare($sql);
             $stmt->bindValue(1, $id);
             $stmt->execute();
-
+            $user =  new User();
             if($stmt->rowCount()>0){
-                  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ( $stmt->fetchAll(PDO::FETCH_ASSOC) as $value){
+                    $user->setId($value['id']);
+                    $user->setName($value['nome']);
+                    $user->setLogin($value['login']);
+                    $user->setPassword($value['senha']);
+                    $user->setAdmin($value['admin']);
+
+                    return $user;
+                }
             }
             return 0;
          }
 
          public function update(User $user){
-             $sql = "Update usuarios_sistemas set nome = ?, senha = ?, admin = ? where id = ?";
+             $sql = "Update usuarios_sistemas set  nome = ?, login = ?, senha = ?,admin = ? where id = ?";
              $stmt = Connect::Conn()->prepare($sql);
              $stmt->bindValue(1,$user->getName());
-             $stmt->bindValue(2,$user->getPassword());
-             $stmt->bindValue(3,$user->getAdmin());
-             $stmt->bindValue(3,$user->getId());
+             $stmt->bindValue(2,$user->getLogin());
+             $stmt->bindValue(3,$user->getPassword());
+             $stmt->bindValue(4,$user->getAdmin());
+             $stmt->bindValue(5,$user->getId());
              $stmt->execute();
 
          }
@@ -63,8 +74,7 @@
             if($stmt->rowCount()>0){
                     $date = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    return $date;
-
+                    return $date[0]['id'];
 
             }
             return 0;

@@ -1,21 +1,28 @@
 *{margin:0;padding: 0;box-sizing: border-box;font-family: "Segoe UI",sans-serif;}
-body{
-    height: 100vh;
+body,html{
+
+    height: 100%;
+
+
 }
+
 div#container{
 
     height: 100%;
     display: flex;
+
 }
 
 section#panel-dashboard{
 
     min-width: 250px;
-    height: 100%;
-    box-shadow: 5px 0px 5px rgba(0,0,0,.2);
+    box-shadow: 5px 0 5px rgba(0,0,0,0.2);
     z-index: 1000;
+
+
 }
 h1#logo{
+    width: 100%;
     color:#F2893E;
     display: flex;
     align-items: center;
@@ -23,6 +30,7 @@ h1#logo{
     justify-content: center;
     font-size: 18px;
     margin-bottom: 20px;
+
 }
 #logo span{
 
@@ -153,15 +161,120 @@ nav#menu span{
 
 section#content{
     background-color: white;
-    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top:30px;
 
+
 }
 
-@media screen and (max-width: 600px) {
+
+/*ESTILOS DO FORMULARIO*/
+.form-group{
+
+    width: 70%;
+}
+
+form hr{
+    width: 30%;
+    margin: 20px auto;
+    border-color: #cd4848;
+
+}
+h2,h1{
+    width: 100%;
+}
+.form-group h1{
+    font-size: 20px;
+    margin: 20px 0;
+
+}
+.form-group h2{
+    font-size: 15px;
+    margin: 10px 0;
+}
+form input, form select{
+
+    width: 100%;
+    height: 35px;
+    margin: 10px 0;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline-color: rgba(143, 40, 40,0.8);
+
+}
+.row{
+    width: 100%;
+    display: flex;
+
+}
+.row label{
+    margin-right: 15px;
+}
+
+.row .col{
+
+    flex-grow: 1;
+    flex-basis:auto;
+
+}
+.col-1{
+    width: 9%;
+}
+.col-2{
+    width: 18%;
+}
+.col-3{
+    width: 27%;
+}
+.col-4{
+    width: 36%;
+}
+.col-5{
+    width: 45%;
+}
+.col-6{
+    width: 55%;
+}
+.col-12{
+    width: 100%;
+}
+
+.form-group form{
+
+}
+form p{
+    margin: 20px 0;
+    width: 100%;
+}
+
+.btn-group{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    padding: 0 15px;
+}
+.btn-right{
+    justify-content: flex-end;
+}
+.btn-default{
+    cursor:pointer;
+    border-radius:4px;
+    padding: 10px;
+    border-style: none;
+}
+.btn-save{
+    background-color: #cd4848;
+    color:white;
+}
+
+@media screen and (max-width: 900px){
+    .form-group{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 780px) {
     div#container{
         flex-direction: column;
     }
@@ -170,8 +283,9 @@ section#content{
         height: 60px;
 
     }
-    #logo{
+    h1#logo{
         margin: 0 0 0 10px;
+        width: 150px;
     }
     section#panel-dashboard header {
         display: flex;
@@ -202,6 +316,8 @@ section#content{
     #group-header{
         display: flex;
         align-items: center;
+        height: 100%;
+
     }
     section#panel-dashboard header p:first-of-type{
         margin-right:15px;
@@ -223,58 +339,5 @@ section#content{
 
     }
 
-}
-
-/*ESTILOS DO FORMULARIO*/
-.form-group{
-
-    width: 70%;
-}
-
-form hr{
-    width: 30%;
-    margin: 20px auto;
-    border-color: #cd4848;
 
 }
-.form-group h1{
-    font-size: 20px;
-    margin: 20px 0;
-
-}
-.form-group h2{
-    font-size: 15px;
-    margin: 10px 0;
-}
-form input{
-
-    width: 100%;
-    height: 35px;
-    margin: 10px 0;
-    padding-left: 10px;
-    box-sizing: border-box;
-    outline-color: rgba(143, 40, 40,0.8);
-
-}
-form p{
-    margin: 20px 0;
-}
-
-.btn-group{
-    margin: 20px 0;
-    display: flex;
-}
-.btn-right{
-    justify-content: flex-end;
-}
-.btn-default{
-    cursor:pointer;
-    border-radius:4px;
-    padding: 10px;
-    border-style: none;
-}
-.btn-save{
-    background-color: #cd4848;
-    color:white;
-}
-

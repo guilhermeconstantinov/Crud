@@ -5,14 +5,14 @@
     require_once '../class/UserDao.php';
 
     if(isset($_SESSION['id'])){
-        header('location: /dashboard.php');
+        header('location: /user-panel.php');
     }
 
     $user =  new User();
     $useDao =  new UserDao();
 
     if(isset($_POST['submit'])){
-        $user->setName($_POST['register-name']);
+        $user->setName(str_replace("  "," ",$_POST['register-name']));
         $user->setLogin($_POST['register-email']);
         $user->setPassword($_POST['register-password']);
         $password_confirm = $_POST['register-confirm'];
@@ -56,7 +56,7 @@
         }else{
 
 
-            if($date= $useDao->create($user)){
+            if($useDao->create($user)){
                 header('location: ../index.php');
             }else{
                 $_SESSION['error']['register'][] = "Usuário já existe";
