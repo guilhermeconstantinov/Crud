@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user-panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-perfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +51,16 @@
       <recent name="C:\Users\guilh\Desktop\Crud\css" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="form-add.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Crud/form/form-add.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.form-add.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -81,7 +87,11 @@
       <workItem from="1597232421009" duration="2245000" />
       <workItem from="1597235755700" duration="13512000" />
       <workItem from="1597269577089" duration="5959000" />
-      <workItem from="1597314758114" duration="22603000" />
+      <workItem from="1597314758114" duration="27571000" />
+      <workItem from="1597346754584" duration="6196000" />
+      <workItem from="1597354004020" duration="7585000" />
+      <workItem from="1597400975895" duration="3670000" />
+      <workItem from="1597406016176" duration="2395000" />
     </task>
     <servers />
   </component>
@@ -113,14 +123,62 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597234714122" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597345035461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597345035461" />
+    <state width="1323" height="223" key="GridCell.Tab.2.bottom" timestamp="1597345035462">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597345035462" />
+    <state width="1323" height="223" key="GridCell.Tab.2.center" timestamp="1597345035462">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1597345035462" />
+    <state width="1323" height="223" key="GridCell.Tab.2.left" timestamp="1597345035462">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1597345035462" />
+    <state width="1323" height="223" key="GridCell.Tab.2.right" timestamp="1597345035462">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1597345035462" />
     <state x="495" y="87" key="NewPhpClassDialog" timestamp="1597005887910">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1597005887910" />
-    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597273670952">
+    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597403305333">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597273670952" />
+    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597403305333" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1597227513627">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

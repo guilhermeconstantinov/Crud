@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once 'class/UserDao.php';
+    require_once 'class/CustomersDao.php';
     require_once 'class/User.php';
 
 
@@ -54,7 +55,7 @@
                         if(isset($_GET['f'])){
                             switch ($_GET['f']){
                                 case 'add_acesso':
-                                    include 'form/form-add.php';
+                                    include 'form/form-list.php';
                                     break;
                                 case 'consultar':
                                     include 'form/form-consult.php';
@@ -74,6 +75,7 @@
             </section>
 
         </div>
+
         <script>
             var btn =  document.getElementById('btn-resp');
             var menu = document.getElementById('menu');
@@ -81,7 +83,7 @@
             window.addEventListener('resize',()=>{
                 JWidth = window.innerWidth;
 
-                if(JWidth>600){
+                if(JWidth>800){
                     menu.style.display = "block";
                 }else{
                     menu.style.display = "none";

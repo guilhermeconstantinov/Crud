@@ -1,5 +1,5 @@
 *{margin:0;padding: 0;box-sizing: border-box;font-family: "Segoe UI",sans-serif;}
-body,html{
+body{
 
     height: 100%;
 
@@ -18,6 +18,9 @@ section#panel-dashboard{
     min-width: 250px;
     box-shadow: 5px 0 5px rgba(0,0,0,0.2);
     z-index: 1000;
+
+    background: white;
+
 
 
 }
@@ -154,7 +157,6 @@ nav#menu span{
 
     background-color: #e56330;
 
-
 }
 
 /* Menu finalizado aqui */
@@ -162,10 +164,11 @@ nav#menu span{
 section#content{
     background-color: white;
     width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top:30px;
-
 
 }
 
@@ -174,6 +177,7 @@ section#content{
 .form-group{
 
     width: 70%;
+    height: 100%;
 }
 
 form hr{
@@ -236,6 +240,8 @@ form input, form select{
 }
 .col-6{
     width: 55%;
+    flex-grow: 0 !important;
+    flex-basis: auto !important;
 }
 .col-12{
     width: 100%;
@@ -277,6 +283,7 @@ form p{
 @media screen and (max-width: 780px) {
     div#container{
         flex-direction: column;
+        height: 100%;
     }
     section#panel-dashboard{
         width: 100%;
@@ -308,9 +315,9 @@ form p{
         display: none;
         right: 0;
         position: absolute;
-        background-color: gray;
         width: 100%;
         background-color: #FFF;
+        border-bottom: 1px solid gray;
 
     }
     #group-header{
@@ -338,6 +345,7 @@ form p{
         width: 100%;
 
     }
+
 
 
 }

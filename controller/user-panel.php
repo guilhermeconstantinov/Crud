@@ -1,6 +1,7 @@
 <?php
     require_once '../class/User.php';
     require_once '../class/UserDao.php';
+    require_once '../class/CustomersDao.php';
 
     session_start();
     $userDao = new UserDao();
@@ -66,4 +67,6 @@
     if(isset($_POST['submit-customers'])){
         echo"submit aceito";
     }
+
+
 ?>
