@@ -12,57 +12,32 @@
     $useDao =  new UserDao();
 
     if(isset($_POST['submit'])){
-        $user->setName(str_replace("  "," ",$_POST['register-name']));
+        $user->setName($_POST['register-name']);
         $user->setLogin($_POST['register-email']);
         $user->setPassword($_POST['register-password']);
         $password_confirm = $_POST['register-confirm'];
 
 
-        if($user->getName() == ""){
-            $_SESSION['error']['register'][] = "Preencha seu nome";
-        }else{
-            if (!preg_match("/[a-zA-Z]/", $user->getName())){
+         if($user->getPassword() != $password_confirm) {
 
-                $_SESSION['error']['register'][] = "Nomes devem conter apenas letras";
+            $_SESSION['error']['register'] = "Campos senhas são diferentes";
+            header('location: ../index.php?r=register');
 
-            }
-        }
-
-        if($user->getLogin() == ""){
-
-            $_SESSION['error']['register'][] = " Preencha o campo de E-mail";
-
-        }
-
-
-        if($user->getPassword() == ""){
-
-            $_SESSION['error']['register'][] = "Preencha o campo senha";
-
-        }else  if (!preg_match("/^\w*?$/", $user->getPassword())){
-
-            $_SESSION['error']['register'][] = "Senhas somente números e letras";
-
-        }else if($user->getPassword() != $password_confirm) {
-
-            $_SESSION['error']['register'][] = "Campos senhas são diferentes";
-
-        }
-
-        if(isset($_SESSION['error']['register'])){
-
-            header('location: index.php?r=register');
-
-        }else{
+         }else{
+             if($useDao->create($user)){
+                 header('location: ../index.php');
+                 $_SESSION['error']['login'] = "Cadastro feito com sucesso";
+             }else{
+                 $_SESSION['error']['register'] = "Usuário já existe";
+                 header('location: ../index.php?r=register');
+                 echo "entrei";
+             }
+         }
 
 
-            if($useDao->create($user)){
-                header('location: ../index.php');
-            }else{
-                $_SESSION['error']['register'][] = "Usuário já existe";
-                header('location: ../index.php?r=register');
-            }
 
-        }
+
+
+
 
     }

@@ -55,7 +55,7 @@
                         if(isset($_GET['f'])){
                             switch ($_GET['f']){
                                 case 'add_acesso':
-                                    include 'form/form-list.php';
+                                    include 'form/form-add.php';
                                     break;
                                 case 'consultar':
                                     include 'form/form-consult.php';

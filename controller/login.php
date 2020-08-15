@@ -17,35 +17,16 @@
         $user->setPassword($_POST['login-password']);
 
 
-        if($user->getLogin() == ""){
-            $_SESSION['error']['login'][] = " Preencha o campo de E-mail";
-
-        }
-
-        if($user->getPassword() == ""){
-            $_SESSION['error']['login'][] = "Preencha o campo senha";
-
-        }else {
-            if (!preg_match("/^\w*?$/", $user->getPassword())) {
-                $_SESSION['error']['login'][] = "Senhas somente números e letras";
-
-            }
-        }
-        if(isset($_SESSION['error'])){
-            header('location: ../index.php');
-        }else{
-
-
             if($date = $userDao->login($user)){
 
                 $_SESSION['id'] = $date;
 
                 header('location: ../dashboard.php');
             }else{
-                $_SESSION['error']['login'][] = "Email ou senha incorretos";
+                $_SESSION['error']['login'] = "Email ou senha incorretos";
                 header('location: ../index.php');
             }
-        }
+
 
 
     }

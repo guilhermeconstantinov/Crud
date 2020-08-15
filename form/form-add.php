@@ -1,7 +1,28 @@
+<script>
+
+            function cnpj(str){
+
+                var http = new XMLHttpRequest();
+                http.responseType = "json";
+                http.onreadystatechange = function(){
+                    if(this.readyState === 4 && this.status === 200){
+
+                        var result = this.response[0];
+                        document.getElementById('company-name').value = result['nome_emp'];
+
+                    }
+                }
+                http.open("POST", "controller/user-panel.php", true);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.send("company-cnpj="+str);
+
+            }
+
+</script>
 <section class="form-group">
 
     <h1>Adicionar novo acesso</h1>
-    <form  action="controller/user-panel.php" method="post">
+    <form  id="form-cadastro" action="controller/user-panel.php" method="post">
         <div class="row">
             <label class="col col-12">Nome Completo
                 <input type="text" name="register-name" pattern="^([a-zA-Z\u00C0-\u017F']{0,}(\s?)){0,}$" title="Permitido somente letras e espaços" placeholder="Nome e sobrenome" value="" required>
@@ -58,7 +79,7 @@
 
         <div class="row">
             <label class="col col-12">Nome da empresa
-                <input type="text" name="company-name" pattern="^([a-zA-Z0-9\u00C0-\u017F']{0,}(\s?)){0,}$" title="Digite o nome completo da empresa contendo letras e números" placeholder="Nome da empresa">
+                <input type="text" id="company-name" name="company-name" pattern="^([a-zA-Z0-9\u00C0-\u017F']{0,}(\s?)){0,}$" title="Digite o nome completo da empresa contendo letras e números" placeholder="Nome da empresa">
             </label>
         </div>
         <div class="row">
@@ -68,7 +89,12 @@
         </div>
         <div class="row">
             <label class="col">CNPJ
-                <input onchange="showUser(this.value)" type="text" id="cnpj" name="company-cnpj" pattern="(\d{3})\.?(\d{3})\.?(\d{3})\/?(\d{4})-?(\d{2})" title="CNPJ formato 000.000.000/0000-00" placeholder="000.000.000/0000-00">
+                <input  type="text" id="cnpj" name="company-cnpj" pattern="(\d{3})\.?(\d{3})\.?(\d{3})\/?(\d{4})-?(\d{2})" title="CNPJ formato 000.000.000/0000-00"  placeholder="000.000.000/0000-00" value="">
+            </label>
+        </div>
+        <div class="row">
+            <label class="col">teste
+                <input  type="text" id="cnpj" name="company-cnpj" onchange="cnpj(this.value)"  placeholder="000.000.000/0000-00" value="">
             </label>
         </div>
         <div class="row">
