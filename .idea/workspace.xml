@@ -3,16 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/CustomersDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/CustomersDao.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/user-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user-panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-perfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-register.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-consult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-list.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,9 @@
       <workItem from="1597406016176" duration="7604000" />
       <workItem from="1597420391968" duration="8833000" />
       <workItem from="1597436364856" duration="9775000" />
-      <workItem from="1597493532385" duration="627000" />
+      <workItem from="1597493532385" duration="12247000" />
+      <workItem from="1597533724945" duration="595000" />
+      <workItem from="1597540602693" duration="2971000" />
     </task>
     <servers />
   </component>

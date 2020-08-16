@@ -33,14 +33,14 @@
                     <div id="avatar"></div>
                     <div id="group-header">
                         <p><?php echo $user->getName();?></p>
-                        <p><?php echo ($user->getLogin() == 0)?"Comum":"Admin";?></p>
+                        <p><?php echo (!$user->getAdmin())?"Comum":"Admin";?></p>
                         <button id="btn-resp"></button>
                     </div>
                 </header>
 
                 <nav id="menu">
                     <ul>
-                        <li id="btn-add"><a href="dashboard.php?f=add_acesso">Adicionar acesso</a></li>
+                        <?php echo ($user->getAdmin())?"<li id=\"btn-add\"><a href=\"dashboard.php?f=add_acesso\">Adicionar acesso</a></li>":""?>
                         <li><span class="profile-icon"></span><a href="dashboard.php?f=perfil">Meu Perfil</a></li>
                         <li><span class="consult-icon"></span><a href="dashboard.php?f=consultar">Consultar acesso</a></li>
                         <li><span class="logout-icon"></span><a href="dashboard.php?f=deslogar">Deslogar</a></li>
@@ -55,7 +55,12 @@
                         if(isset($_GET['f'])){
                             switch ($_GET['f']){
                                 case 'add_acesso':
-                                    include 'form/form-add.php';
+                                    if($user->getAdmin()){
+                                        include 'form/form-add.php';
+                                    }else{
+                                        header('location: dashboard.php');
+                                    }
+
                                     break;
                                 case 'consultar':
                                     include 'form/form-consult.php';
@@ -71,7 +76,7 @@
                             }
                         }
                     ?>
-                <p></p>
+
             </section>
 
         </div>

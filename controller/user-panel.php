@@ -43,9 +43,13 @@
 
     if(isset($_POST['company-cnpj'])){
         $customers =  new CustomersDao();
-        $date = $customers->readCustomers($_POST['company-cnpj']);
+        $date = $customers->readCompany($_POST['company-cnpj']);
 
         echo json_encode($date);
+    }
+
+    if(isset($_POST['placa'])){
+
     }
 
 

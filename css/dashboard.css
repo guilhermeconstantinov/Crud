@@ -1,14 +1,9 @@
 *{margin:0;padding: 0;box-sizing: border-box;font-family: "Segoe UI",sans-serif;}
-body{
 
-    height: 100%;
-
-
-}
 
 div#container{
 
-    height: 100%;
+    min-height: 100vh;
     display: flex;
 
 }
@@ -21,7 +16,6 @@ section#panel-dashboard{
     min-width: 250px;
     box-shadow: 5px 0 5px rgba(0,0,0,0.2);
     z-index: 1000;
-
     background: white;
 
 
@@ -168,11 +162,10 @@ section#content{
     background-color: white;
     min-height: 100%;
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:30px;
+
 
 }
 
@@ -181,7 +174,7 @@ section#content{
 .form-group{
 
     width: 70%;
-    height: 100%;
+
 }
 
 form hr{
@@ -214,18 +207,24 @@ h2,h1{
 }
 table{
     border-spacing: 0;
-    border-collapse: collapse;
-}
-table tr td, table tr th{
-    padding: 5px;
+    width: 100%;
+    margin-top: 30px;
 
-    border:1px solid red;
 }
+table tr th, table tr, td{
+    padding: 5px;
+    border-bottom:1px solid gray;
+    text-align: center;
+    font-size: 14px;
+}
+
 .row{
     width: 100%;
     display: flex;
+    align-items: center;
 
 }
+
 .row label{
     margin-right: 15px;
 }
@@ -260,9 +259,7 @@ table tr td, table tr th{
     width: 100%;
 }
 
-.form-group form{
 
-}
 form p{
     margin: 20px 0;
     width: 100%;
@@ -278,10 +275,34 @@ form p{
     justify-content: flex-end;
 }
 .btn-default{
-    cursor:pointer;
+
     border-radius:4px;
     padding: 10px;
     border-style: none;
+    display: inline-block;
+}
+.td-flex{
+    display: flex;
+    justify-content: space-around;
+}
+.btn-edit{
+   background-color: #eab92c;
+    width:30px;
+    height: 30px;
+    background-image: url('../img/pencil.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+.btn-del{
+    background-color: #b82020;
+    width:30px;
+    height: 30px;
+    background-image: url('../img/delete.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+
 }
 .btn-save{
     background-color: #cd4848;
@@ -301,6 +322,7 @@ form p{
     section#panel-dashboard{
         width: 100%;
         height: 60px;
+
 
     }
     h1#logo{
@@ -326,8 +348,6 @@ form p{
 
     nav#menu{
         display: none;
-        right: 0;
-        position: absolute;
         width: 100%;
         background-color: #FFF;
         border-bottom: 1px solid gray;
@@ -358,7 +378,6 @@ form p{
         width: 100%;
 
     }
-
 
 
 }
