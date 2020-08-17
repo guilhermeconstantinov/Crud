@@ -42,14 +42,50 @@
 
 
     if(isset($_POST['company-cnpj'])){
-        $customers =  new CustomersDao();
-        $date = $customers->readCompany($_POST['company-cnpj']);
+        $company =  new Company();
+        $date = $company->readCompany($_POST['company-cnpj']);
 
         echo json_encode($date);
     }
 
-    if(isset($_POST['placa'])){
+    if(isset($_POST["submit-customers"])){
+        $company = new Company();
+        $customers = new Customers();
+        $vehicle = new Vehicle();
 
+        //Clientes
+        $customers->setNomeC($_POST['register-nome']);
+        $customers->setCpfC($_POST['register-cpf']);
+        $customers->setCnhC($_POST['register-cnh']);
+        $customers->setTipoC($_POST['register-tipo']);
+        $customers->setCidade($_POST['register-cidade']);
+        $customers->setEstado($_POST['register-estado']);
+        $customers->setRua($_POST['register-rua']);
+        $customers->setNum($_POST['register-num']);
+        $customers->setBairro($_POST['register-bairro']);
+
+        //Carros
+        $vehicle->setMarca($_POST['register-marca']);
+        $vehicle->setModelo($_POST['register-modelo']);
+        $vehicle->setAno($_POST['register-ano']);
+        $vehicle->setCor($_POST['register-cor']);
+        $vehicle->setPlaca($_POST['register-placa']);
+
+
+        //Dados da empresa
+        $company->setCnpj($_POST['company-cnpj']);
+        $company->setNome($_POST['company-nome']);
+        $company->setNomeF($_POST['company-nomef']);
+        $company->setResp($_POST['company-resp']);
+        $company->setTel($_POST['company-tel']);
+        $company->setCidade($_POST['company-cidade']);
+        $company->setEstado($_POST['company-estado']);
+        $company->setRua($_POST['company-rua']);
+        $company->setNum($_POST['company-no']);
+        $company->setBairro($_POST['company-bairro']);
+        $company->addCompany($customers,$company,$vehicle);
+        unset($_POST['submit-customers']);
+        header('location: ../');
     }
 
 

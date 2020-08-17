@@ -23,31 +23,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="css/panel.css">
 
     </head>
     <body>
         <div id="container">
-            <section id="panel-dashboard">
-                <header>
-                    <h1 id="logo"><span></span>Estagiando</h1>
-                    <div id="avatar"></div>
-                    <div id="group-header">
-                        <p><?php echo $user->getName();?></p>
-                        <p><?php echo (!$user->getAdmin())?"Comum":"Admin";?></p>
-                        <button id="btn-resp"></button>
-                    </div>
-                </header>
-
-                <nav id="menu">
-                    <ul>
-                        <?php echo ($user->getAdmin())?"<li id=\"btn-add\"><a href=\"dashboard.php?f=add_acesso\">Adicionar acesso</a></li>":""?>
-                        <li><span class="profile-icon"></span><a href="dashboard.php?f=perfil">Meu Perfil</a></li>
-                        <li><span class="consult-icon"></span><a href="dashboard.php?f=consultar">Consultar acesso</a></li>
-                        <li><span class="logout-icon"></span><a href="dashboard.php?f=deslogar">Deslogar</a></li>
-
-                    </ul>
-                </nav>
-            </section>
+            <div id="menu-lateral">
+                <?php include 'panel-dashboard.php'?>
+            </div>
 
             <section id="content">
                     <?php
@@ -80,7 +63,7 @@
             </section>
 
         </div>
-
+<!--
         <script>
             var btn =  document.getElementById('btn-resp');
             var menu = document.getElementById('menu');
@@ -106,7 +89,7 @@
 
                 }
             });
-        </script>
+        </script>-->
     </body>
 </html>
 

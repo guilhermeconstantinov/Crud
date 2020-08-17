@@ -31,7 +31,7 @@
 
         <div class="row">
             <label class="col">
-                <input type="text" id="placa" name="placa"   placeholder="Digite a placa do carro"  required>
+                <input type="text" id="placa" name="placa" placeholder="Digite a placa do carro"  required>
 
             </label>
             <label>
