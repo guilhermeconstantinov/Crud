@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/CustomersDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/CustomersDao.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/user-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user-panel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-consult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-perfil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +97,8 @@
       <workItem from="1597533724945" duration="595000" />
       <workItem from="1597540602693" duration="5593000" />
       <workItem from="1597585130028" duration="22526000" />
-      <workItem from="1597661752046" duration="11205000" />
+      <workItem from="1597661752046" duration="22722000" />
+      <workItem from="1597701943803" duration="6208000" />
     </task>
     <servers />
   </component>
@@ -125,10 +118,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1596900394614" />
-    <state x="476" y="111" key="#com.intellij.ide.util.MemberChooser" timestamp="1597631050328">
+    <state x="476" y="111" key="#com.intellij.ide.util.MemberChooser" timestamp="1597683118581">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="476" y="111" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597631050328" />
+    <state x="476" y="111" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597683118581" />
     <state x="454" y="292" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596825235465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

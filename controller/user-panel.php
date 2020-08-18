@@ -58,6 +58,7 @@
         $customers->setCpfC($_POST['register-cpf']);
         $customers->setCnhC($_POST['register-cnh']);
         $customers->setTipoC($_POST['register-tipo']);
+        $customers->setTel($_POST['register-tel']);
         $customers->setCidade($_POST['register-cidade']);
         $customers->setEstado($_POST['register-estado']);
         $customers->setRua($_POST['register-rua']);
@@ -83,9 +84,10 @@
         $company->setRua($_POST['company-rua']);
         $company->setNum($_POST['company-no']);
         $company->setBairro($_POST['company-bairro']);
-        $company->addCompany($customers,$company,$vehicle);
+
+        $company->registerCustomers($company,$customers,$vehicle);
         unset($_POST['submit-customers']);
-        header('location: ../');
+
     }
 
 

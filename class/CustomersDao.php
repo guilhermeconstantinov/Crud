@@ -6,6 +6,23 @@ abstract class CustomersDao{
     private $bairro;
     private $cidade;
     private $estado;
+    private $id_end;
+
+    /**
+     * @return mixed
+     */
+    public function getIdEnd()
+    {
+        return $this->id_end;
+    }
+
+    /**
+     * @param mixed $id_end
+     */
+    public function setIdEnd($id_end): void
+    {
+        $this->id_end = $id_end;
+    }
 
     /**
      * @return mixed
@@ -86,23 +103,32 @@ abstract class CustomersDao{
     {
         $this->estado = $estado;
     }
-    public function addEnd($param ,$userEnd){
-        $sql = "Insert into endereco(rua,num,bairro,cidade,estado,id_emp) values(?,?,?,?,?,?)";
-        $stmt =  Connect::Conn()->prepare($sql);
-        $stmt->bindValue(1, $userEnd->getRua());
-        $stmt->bindValue(2, $userEnd->getNum());
-        $stmt->bindValue(3, $userEnd->getBairro());
-        $stmt->bindValue(4,$userEnd->getCidade());
-        $stmt->bindValue(5, $userEnd->getEstado());
+    public function addEnd($param){
 
         if($param == "company"){
-            $stmt->bindValue(6, $userEnd->getId());
+            $sql = "Insert into endereco(rua,num,bairro,cidade,estado,id_emp) values(?,?,?,?,?,?)";
+            $stmt =  Connect::Conn()->prepare($sql);
+            $stmt->bindValue(1, $this->getRua());
+            $stmt->bindValue(2, $this->getNum());
+            $stmt->bindValue(3, $this->getBairro());
+            $stmt->bindValue(4, $this->getCidade());
+            $stmt->bindValue(5, $this->getEstado());
+            $stmt->bindValue(6, $this->getId());
             $stmt->execute();
 
-        }else if($param == "customers"){
+        }
+
+        if($param == "customers"){
+            $sql = "Insert into endereco(rua,num,bairro,cidade,estado,id_emp) values(?,?,?,?,?,?)";
+            $stmt =  Connect::Conn()->prepare($sql);
+            $stmt->bindValue(1, $this->getRua());
+            $stmt->bindValue(2, $this->getNum());
+            $stmt->bindValue(3, $this->getBairro());
+            $stmt->bindValue(4, $this->getCidade());
+            $stmt->bindValue(5, $this->getEstado());
             $stmt->bindValue(6, null);
             $stmt->execute();
-            return Connect::Conn()->lastInsertId();
+            $this->setIdEnd(Connect::Conn()->lastInsertId());
         }
 
 
@@ -227,37 +253,42 @@ class Company extends CustomersDao
         }
         return 0;
     }
-    public function registerCustomers(Customers $customers){
 
-        if(!$this->readCompany($customers->getCnpj())){
-            $this->addCompany($customers);
-        };
+    public function registerCustomers(Company $company, Customers $customers, Vehicle $vehicle){
 
+        if($company->addCompany()){
+            $company->addEnd("company");
+        }
+        $customers->addEnd("customers");
+        echo "Id-company:".$company->getId()."|||";
+        $id_c= $customers->addCustomer($company->getId());
+        echo "Id:Cliente".$id_c;
+        $vehicle->addVehicle($id_c);
     }
 
-    public function addCompany(Customers $customers,Company $company, Vehicle $vehicle)
-    {
+    public function addCompany(){
         $sql = "Insert into empresa(nome_emp,nome_f,cnpj_emp,tel_emp,resp_emp) values(?,?,?,?,?)";
         $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1, $this->getNome());
+        $stmt->bindValue(2, $this->getNomeF());
+        $stmt->bindValue(3, $this->getCnpj());
+        $stmt->bindValue(4, $this->getTel());
+        $stmt->bindValue(5, $this->getResp());
 
-        $stmt->bindValue(1, $company->getNome());
-        $stmt->bindValue(2, $company->getNomeF());
-        $stmt->bindValue(3, $company->getCnpj());
-        $stmt->bindValue(4, $company->getTel());
-        $stmt->bindValue(5, $company->getResp());
-
-        $result = $this->readCompany($company->getCnpj())['id_emp'];
+        $result = $this->readCompany($this->getCnpj());
+        
         if (!$result) {
             $stmt->execute();
-            $company->setId(Connect::Conn()->lastInsertId());
-            $this->addEnd("company",$company);
-            $customers->setIdEnd($this->addEnd("customers",$customers));
-            $customers->addCustomer($customers);
-            $vehicle->addVehicle($vehicle, $customers->addCustomer($customers));
-            echo "Final";
-        }else{
 
+            $this->setId(Connect::Conn()->lastInsertId());
+            return 1;
+
+        }else{
+            $this->setId($result['id_emp']);
         }
+
+        return 0;
+
     }
 
 
@@ -270,18 +301,20 @@ class Customers extends CustomersDao{
     protected $cnh_c;
     protected $tipo_c;
     protected $tel;
-    protected $id_emp;
-    protected $id_end;
 
-    public function addCustomer( Customers $customers){
-        $sql = "Insert into empresa(nome_c,cpf_C,cnh_c,tel,tipo_c,id_emp,id_end) values(?,?,?,?,?,?,?)";
+
+    public function addCustomer($id_emp){
+        $sql = "Insert into clientes(nome_c,cpf_c,cnh_c,tel,tipo_c,id_emp,id_end) values(?,?,?,?,?,?,?)";
         $stmt = Connect::Conn()->prepare($sql);
-        $stmt->bindValue(1, $customers->getNomeC());
-        $stmt->bindValue(2, $customers->getCpfC());
-        $stmt->bindValue(3, $customers->getTel());
-        $stmt->bindValue(4, $customers->getTipoC());
-        $stmt->bindValue(5, $customers->getIdEmp());
-        $stmt->bindValue(6, $customers->getIdEnd());
+        $stmt->bindValue(1, $this->getNomeC());
+        $stmt->bindValue(2, $this->getCpfC());
+        $stmt->bindValue(3, $this->getCnhC());
+        $stmt->bindValue(4, $this->getTel());
+        $stmt->bindValue(5, $this->getTipoC());
+        $stmt->bindValue(6, $id_emp);
+       // echo "Meu id".$id_emp."<br>";
+        $stmt->bindValue(7, $this->getIdEnd());
+
         $stmt->execute();
         return Connect::Conn()->lastInsertId();
     }
@@ -384,34 +417,8 @@ class Customers extends CustomersDao{
     /**
      * @return mixed
      */
-    public function getIdEmp()
-    {
-        return $this->id_emp;
-    }
 
-    /**
-     * @param mixed $id_emp
-     */
-    public function setIdEmp($id_emp)
-    {
-        $this->id_emp = $id_emp;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getIdEnd()
-    {
-        return $this->id_end;
-    }
-
-    /**
-     * @param mixed $id_end
-     */
-    public function setIdEnd($id_end)
-    {
-        $this->id_end = $id_end;
-    }
 
 }
 class Vehicle{
@@ -421,17 +428,17 @@ class Vehicle{
     protected $modelo;
     protected $placa;
     protected $cor;
-    protected $id_c;
 
 
-    public function addVehicle(Vehicle $vehicle, $id){
+
+    public function addVehicle( $id){
         $sql = "Insert into carros(marca,modelo,ano,placa,cor,id_c) values(?,?,?,?,?,?)";
         $stmt = Connect::Conn()->prepare($sql);
-        $stmt->bindValue(1,$vehicle->getMarca());
-        $stmt->bindValue(2,$vehicle->getModelo());
-        $stmt->bindValue(3,$vehicle->getAno());
-        $stmt->bindValue(4,$vehicle->getPlaca());
-        $stmt->bindValue(5,$vehicle->getCor());
+        $stmt->bindValue(1,$this->getMarca());
+        $stmt->bindValue(2,$this->getModelo());
+        $stmt->bindValue(3,$this->getAno());
+        $stmt->bindValue(4,$this->getPlaca());
+        $stmt->bindValue(5,$this->getCor());
         $stmt->bindValue(6, $id);
         $stmt->execute();
     }
