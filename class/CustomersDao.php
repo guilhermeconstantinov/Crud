@@ -312,7 +312,6 @@ class Customers extends CustomersDao{
         $stmt->bindValue(4, $this->getTel());
         $stmt->bindValue(5, $this->getTipoC());
         $stmt->bindValue(6, $id_emp);
-       // echo "Meu id".$id_emp."<br>";
         $stmt->bindValue(7, $this->getIdEnd());
 
         $stmt->execute();
@@ -541,18 +540,7 @@ class Vehicle{
     /**
      * @return mixed
      */
-    public function getIdC()
-    {
-        return $this->id_c;
-    }
-
-    /**
-     * @param mixed $id_c
-     */
-    public function setIdC($id_c)
-    {
-        $this->id_c = $id_c;
-    }
+  
 
 
 }

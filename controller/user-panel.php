@@ -40,14 +40,14 @@
 
     }
 
-
+    //Dados para preencher automaticamente o dados do form
     if(isset($_POST['company-cnpj'])){
         $company =  new Company();
         $date = $company->readCompany($_POST['company-cnpj']);
 
         echo json_encode($date);
     }
-
+    //Adicionando novo cliente
     if(isset($_POST["submit-customers"])){
         $company = new Company();
         $customers = new Customers();
@@ -89,8 +89,17 @@
         unset($_POST['submit-customers']);
 
     }
+    if(isset($_POST['btn-consulta'])){
+        if($_POST['consulta-cnpj']){
+
+        }
+        if($_POST['consulta-placa']){
+
+        }
+    }
 
 
 
 
 ?>
+

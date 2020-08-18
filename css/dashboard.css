@@ -66,6 +66,8 @@ table{
     margin-top: 30px;
 
 }
+
+table td:nth-of-type(1)
 table tr th, table tr, td{
     padding: 5px;
     border-bottom:1px solid gray;
@@ -80,6 +82,11 @@ table tr th, table tr, td{
 
 }
 
+input[type="radio"]{
+    width: 15px;
+    height: 15px;
+    margin-right:10px;
+}
 .row label{
     margin-right: 15px;
 

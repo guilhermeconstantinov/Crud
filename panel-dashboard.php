@@ -12,16 +12,18 @@
 
     <nav id="menu">
         <ul>
-            <?php $basename =  basename(__DIR__);
-                if($basename == "form"){
-                    $dirname = '../form/';
+            <?php $basename =  $_SERVER['REQUEST_URI'];
+             $url = explode("/",$basename);
+
+                if(in_array('form',$url)){
+                    $dirname = '';
                 }else{
                     $dirname = 'form/';
                 }
             ?>
             <li id="btn-add"><a href="<?php echo $dirname;?>form-add.php">Adicionar acesso</a></li>
-            <li><span class="profile-icon"></span><a href="<?php echo $dirname;?>form/form-perfil.php">Meu Perfil</a></li>
-            <li><span class="consult-icon"></span><a href="<?php echo $dirname;?>form/form-consult.php">Consultar acesso</a></li>
+            <li><span class="profile-icon"></span><a href="<?php echo $dirname;?>form-perfil.php">Meu Perfil</a></li>
+            <li><span class="consult-icon"></span><a href="<?php echo $dirname;?>form-consult.php">Consultar acesso</a></li>
             <li><span class="logout-icon"></span><a href="dashboard.php?f=deslogar">Deslogar</a></li>
 
 

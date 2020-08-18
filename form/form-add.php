@@ -143,7 +143,7 @@ if(!isset($_SESSION['id'])){
                 <h2>Dados da empresa</h2>
                 <div class="row">
                     <label class="col">CNPJ
-                        <input  type="text" id="cnpj" name="company-cnpj" onkeyup="FormData(this.value)" pattern="(\d{3})\.?(\d{3})\.?(\d{3})\/?(\d{4})-?(\d{2})" title="CNPJ formato 000.000.000/0000-00"  placeholder="000.000.000/0000-00" value="" required>
+                        <input  type="text" id="cnpj" name="company-cnpj" onkeyup="FormData(this.value)" pattern="(\d{3})\.(\d{3})\.(\d{3})\/(\d{4})-(\d{2})" title="CNPJ formato 000.000.000/0000-00"  placeholder="000.000.000/0000-00" value="" required>
                     </label>
                 </div>
                 <div class="row">
@@ -208,7 +208,8 @@ if(!isset($_SESSION['id'])){
                 </p>
 
 
-        </section></section>
+        </section>
+    </section>
 
 </div>
 </body>
