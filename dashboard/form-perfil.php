@@ -1,21 +1,3 @@
-<?php
-session_start();
-require_once '../class/UserDao.php';
-require_once '../class/CustomersDao.php';
-require_once '../class/User.php';
-
-
-if(!isset($_SESSION['id'])){
-    header('location: index.php');
-}else{
-    $userDao = new UserDao();
-    $user = $userDao->readUser($_SESSION['id']);
-
-
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,14 +11,14 @@ if(!isset($_SESSION['id'])){
 <body>
 <div id="container">
     <div id="menu-lateral">
-        <?php include '../panel-dashboard.php'?>
+        <?php include 'panel-dashboard.php' ?>
     </div>
 
     <section id="content">
         <section class="form-group">
             <h1>Informações do seu perfil</h1>
 
-            <form action="controller/user-panel.php" method="post">
+            <form action="../controller/user-panel.php" method="post">
                 <label>Nome de usuário</label>
                 <input type="text" name="login-name"  pattern="^([a-zA-Z\u00C0-\u017F']{0,}(\s?)){0,}$" title="Permitido somente letras e espaços"placeholder="Nome de usuário" value="<?php echo $user->getName();?>" required>
                 <label>E-mail</label>

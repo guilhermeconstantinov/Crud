@@ -31,24 +31,7 @@
             }
 
 </script>
-<?php
-session_start();
-require_once '../class/UserDao.php';
-require_once '../class/CustomersDao.php';
-require_once '../class/User.php';
 
-
-if(!isset($_SESSION['id'])){
-    header('location: index.php');
-}else{
-    $userDao = new UserDao();
-    $user = $userDao->readUser($_SESSION['id']);
-
-
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -62,7 +45,7 @@ if(!isset($_SESSION['id'])){
 <body>
 <div id="container">
     <div id="menu-lateral">
-        <?php include '../panel-dashboard.php' ?>
+        <?php include 'panel-dashboard.php' ?>
     </div>
 
     <section id="content">

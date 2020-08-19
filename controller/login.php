@@ -7,7 +7,6 @@
         header('location: ../index.php');
     }
 
-
     $user = new User();
     $userDao = new UserDao();
 
@@ -21,7 +20,7 @@
 
                 $_SESSION['id'] = $date;
 
-                header('location: ../dashboard.php');
+                header('location: ../dashboard/dashboard.php');
             }else{
                 $_SESSION['error']['login'] = "Email ou senha incorretos";
                 header('location: ../index.php');

@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dashboard/form-consult.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/CustomersDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/CustomersDao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/user-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user-panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/form-consult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/panel-dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-consult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-perfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/form-register.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/panel-dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +58,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guilh\Desktop\Crud\dashboard" />
       <recent name="C:\Users\guilh\Desktop\Crud\form" />
       <recent name="C:\Users\guilh\Desktop\Crud" />
       <recent name="C:\Users\guilh\Desktop\Crud\js" />
@@ -104,7 +115,8 @@
       <workItem from="1597661752046" duration="22722000" />
       <workItem from="1597701943803" duration="9389000" />
       <workItem from="1597716874152" duration="1099000" />
-      <workItem from="1597742537007" duration="5267000" />
+      <workItem from="1597742537007" duration="34111000" />
+      <workItem from="1597829753868" duration="16963000" />
     </task>
     <servers />
   </component>
@@ -188,10 +200,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1597005887910" />
-    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597543833322">
+    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597841969657">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597543833322" />
+    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597841969657" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1597742703197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -208,15 +220,5 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597601170469" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/form/form-perfil.php</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

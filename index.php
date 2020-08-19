@@ -2,13 +2,12 @@
     session_start();
 
     if(isset($_SESSION['id'])){
-        header('location: user-panel.php');
+        header('location: dashboard/dashboard.php');
     }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
     <head>
         <title>Crud - Estagiando</title>
         <meta charset="utf-8">
@@ -22,10 +21,10 @@
                 <h1 id="logo"><span></span>Estagiando</h1>
 
                 <?php if(isset($_GET['r']) && $_GET['r'] == 'register'){
-                     include 'form/form-register.php';
+                     include 'dashboard/form-register.php';
 
                 }else{
-                    include 'form/form-login.php';
+                    include 'dashboard/form-login.php';
 
                 }
                 ?>

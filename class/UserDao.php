@@ -2,7 +2,14 @@
     require_once 'Connect.php';
     require_once 'User.php';
     class UserDao{
+        public function logout(){
 
+                    session_unset();
+                    session_destroy();
+                    header('location: ../index.php');
+
+
+        }
          public function create(User $user){
              $sql = "SELECT COUNT(login) FROM usuarios_sistemas where login = ?";
              $select = Connect::Conn()->prepare($sql);

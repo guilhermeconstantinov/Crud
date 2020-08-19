@@ -244,7 +244,7 @@ class Company extends CustomersDao
     public function readCompany($cnpj)
     {
 
-        $sql = "select * from empresa join endereco on empresa.id_emp = endereco.id_emp having empresa.cnpj_emp = ?";
+        $sql = "select * from empresa join endereco on empresa.id_emp = endereco.id_emp where empresa.cnpj_emp = ?";
         $stmt = Connect::Conn()->prepare($sql);
         $stmt->bindValue(1, $cnpj);
         $stmt->execute();
@@ -260,9 +260,9 @@ class Company extends CustomersDao
             $company->addEnd("company");
         }
         $customers->addEnd("customers");
-        echo "Id-company:".$company->getId()."|||";
+
         $id_c= $customers->addCustomer($company->getId());
-        echo "Id:Cliente".$id_c;
+
         $vehicle->addVehicle($id_c);
     }
 
@@ -284,7 +284,7 @@ class Company extends CustomersDao
             return 1;
 
         }else{
-            $this->setId($result['id_emp']);
+            $this->setId($result[0]['id_emp']);
         }
 
         return 0;
@@ -316,6 +316,29 @@ class Customers extends CustomersDao{
 
         $stmt->execute();
         return Connect::Conn()->lastInsertId();
+    }
+
+    public function readCustomers($placa)
+    {
+
+        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa, empresa.nome_emp, empresa.nome_f, empresa.cnpj_emp,empresa.tel_emp, empresa.resp_emp, end_empresa.cidade as cidade_emp,end_empresa.estado as estado_emp, end_empresa.rua as rua_emp, end_empresa.num as num_emp, end_empresa.bairro as bairro_emp   from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp where carros.placa = ?";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1, $placa);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return 0;
+    }
+    public function deleteCustomers($id){
+        $sql = "delete from carros where id_c = ?";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+        $sql = "delete from clientes where id_c = ?";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
     }
     /**
      * @return mixed
@@ -540,7 +563,7 @@ class Vehicle{
     /**
      * @return mixed
      */
-  
+
 
 
 }

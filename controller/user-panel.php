@@ -36,11 +36,11 @@
 
         }
             unset($_POST['submit-profile']);
-            header('location: ../dashboard.php?f=perfil');
+            header('location: ../dashboard/form-perfil.php');
 
     }
 
-    //Dados para preencher automaticamente o dados do form
+    //Dados para preencher automaticamente o dados do dashboard
     if(isset($_POST['company-cnpj'])){
         $company =  new Company();
         $date = $company->readCompany($_POST['company-cnpj']);
@@ -86,17 +86,22 @@
         $company->setBairro($_POST['company-bairro']);
 
         $company->registerCustomers($company,$customers,$vehicle);
+        header('location: ../dashboard/dashboard.php');
         unset($_POST['submit-customers']);
 
     }
-    if(isset($_POST['btn-consulta'])){
-        if($_POST['consulta-cnpj']){
 
-        }
-        if($_POST['consulta-placa']){
 
+        if(isset($_POST['consulta-cnpj'])){
+            $company =  new Company();
+
+            echo json_encode($company->readCompany($_POST['consulta-cnpj']));
         }
-    }
+        if(isset($_POST['consulta-placa'])){
+            $customers = new Customers();
+            echo json_encode($customers->readCustomers($_POST['consulta-placa']));
+        }
+
 
 
 
