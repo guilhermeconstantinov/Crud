@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dashboard/form-consult.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/CustomersDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/CustomersDao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/UserDao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user-panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/panel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-consult.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-perfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/form-register.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/panel-dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/consult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-add.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +104,9 @@
       <workItem from="1597701943803" duration="9389000" />
       <workItem from="1597716874152" duration="1099000" />
       <workItem from="1597742537007" duration="34111000" />
-      <workItem from="1597829753868" duration="16963000" />
+      <workItem from="1597829753868" duration="24416000" />
+      <workItem from="1597857542166" duration="231000" />
+      <workItem from="1597865881462" duration="10000" />
     </task>
     <servers />
   </component>

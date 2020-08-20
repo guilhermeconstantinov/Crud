@@ -1,125 +1,79 @@
-<?php /** @noinspection PhpExpressionResultUnusedInspection */
+<?php
+
 
 if(isset($_GET['consulta-placa'])){
     $customers =  new Customers();
     $resultado = $customers->readCustomers($_GET['consulta-placa'])[0];
 
-    if($resultado){
-        echo"<table>".
-            "<tr>".
-            "<th>Nome do usuário</th>".
-            "<th>CPF</th>".
+    if($resultado) {
+        echo "<table>" .
+            "<tr>" .
+            "<th>Nome do usuário</th>" .
+            "<th>CPF</th>" .
             "<th>Placa do carro</th>".
-            "<th>Modelo</th>".
-            "<th>Empresa</th>".
-            "<th>Ações</th>".
-            "</tr>".
-            "<tr>".
-            "<td>{$resultado['nome_c']}</td>".
-            "<td>{$resultado['cpf_c']}</td>".
-            "<td>{$resultado['placa']}</td>".
-            "<td>{$resultado['modelo']}</td>".
-            "<td>{$resultado['nome_emp']}</td>".
+            "<th>Modelo</th>" .
+            "<th>Empresa</th>" .
+            "<th>Ações</th>" .
+            "</tr>" .
+            "<tr>" .
+            "<td>{$resultado['nome_c']}</td>" .
+            "<td>{$resultado['cpf_c']}</td>" .
+            "<td>{$resultado['placa']}</td>" .
+            "<td>{$resultado['modelo']}</td>" .
+            "<td>{$resultado['nome_emp']}</td>" .
             "<td class='td-flex'>";
-        if($user->getAdmin()){
-            echo "<a class='btn-default btn-edit' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=update'><a class='btn-default btn-visu' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=ver'><a class='btn-default btn-del' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=del'></td>";
-        }else{
+        if ($user->getAdmin()) {
+
+            echo "<a class='btn-default btn-edit' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=update'><a class='btn-default btn-visu' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=ver'><a class='btn-default btn-del' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=del'>";
+
+        } else {
+
             echo "<a class='btn-default btn-visu' href='?id={$resultado['id_c']}&consulta-placa={$_GET['consulta-placa']}&f=ver'>";
+
         }
 
-        echo  "</td></tr>".
+        echo "</td></tr>" .
             "</table>";
 
-        ?>
-<?php/*
-    if($resultado && isset($_GET['f']) && $_GET['f'] == "ver"){
-            echo "<h2>Informações de Cliente</h2>";
-            echo "<table class='td-resultado' width='100%' border='1'>".
-                        "<tr>".
-                            "<td>Nome: {$resultado['nome_c']}</td>".
-                            "<td colspan='2'>CPF: {$resultado['cpf_c']}</td>".
-                        "</tr>".
-                        "<tr>".
-                            "<td>CNH: {$resultado['cnh_c']}</td>".
-                            "<td colspan='2'>Tipo: {$resultado['tipo_c']}</td>".
-                        "</tr>".
-                        "<tr>".
-                            "<td colspan='3'>Telefone:{$resultado['tel']}</td>".
-                        "</tr>".
-                        "<tr>".
-                            "<td colspan='3'>Cidade: {$resultado['cidade_c']}-{$resultado['estado_c']}</td>".
-                        "</tr>".
-                        "<tr>".
-                            "<td colspan='2'>Endereço: {$resultado['rua_c']}, nº {$resultado['num_c']}, {$resultado['bairro_c']}</td>".
-                        "</tr>".
-                        "</table>";
+
+    }else{
+        echo "<p style='text-align: center'>Não foi possivel acessar os dados dessa placa, tente outra</p>";
+    }
+    unset($_GET['buscar-consulta']);
 
 
-            echo "<h2>Informações do Veiculo</h2>".
-                 "<table class='td-resultado' width='100%' border='0'>".
-                    "<tr>".
-                        "<td>Marca: {$resultado['marca']}</td>".
-                        "<td>Modelo: {$resultado['modelo']}</td>".
-                        "<td>Modelo: {$resultado['ano']}</td>".
-                    "</tr>".
-                    "<tr>".
-                        "<td>COR: {$resultado['cor']}</td>".
-                        "<td colspan='2'>Placa: {$resultado['placa']}</td>".
-                    "</tr>".
-                 "</table>";
 
-            echo "<h2>Informações da empresa</h2>".
+    if($resultado && isset($_GET['f']) && $_GET['f'] == "update"){
+        echo "<section class=\"form-group form-group-100\">".
 
-                "<table class='td-resultado' width='100%' border='1'>".
-                    "<tr>".
-                        "<td>Empresa: {$resultado['nome_emp']}</td>".
-                        "<td colspan='2'>CNPJ: {$resultado['cnpj_emp']}</td>".
-                    "</tr>".
-                    "<tr>".
-                        "<td>Nome Fantasia: {$resultado['nome_f']}</td>".
-                        "<td colspan='2'>Tipo: {$resultado['tipo_c']}</td>".
-                    "</tr>".
-                    "<tr>".
-                        "<td colspan='3'>Responsável: {$resultado['resp_emp']}</td>".
-                    "</tr>".
-                                                
-                     "<tr>".
-                        "<td colspan='3'>Cidade: {$resultado['cidade_emp']}-{$resultado['estado_emp']}</td>".
-                     "</tr>".
-                     "<tr>".
-                        "<td colspan='2'>Endereço: {$resultado['rua_emp']}, nº {$resultado['num_emp']}, {$resultado['bairro_emp']}</td>".
-                     "</tr>".
-                "</table>";
-        }*/
-/*
-        if($resultado && isset($_GET['f']) && $_GET['f'] == "update"){
-            echo "<section class=\"form-group form-group-100\">".
 
-            "<h1>Atualize as informações</h1>".
             "<form id=\"form-cadastro\" action=\"../controller/user-panel.php\" method=\"post\">".
                 "<h2>Dados do usuário</h2>".
 
                 "<div class=\"row\">".
                     "<label class=\"col col-12\">Nome Completo".
-                        "<input type=\"text\" name=\"register-nome\" pattern=\"^([a-zA-Z\\u00C0-\\u017F']{0,}(\\s?)){0,}$\" title=\"Permitido somente letras e espaços\" placeholder=\"Nome e sobrenome\" value=\"\" required>".
+                        "<input type=\"text\" name=\"register-nome\" pattern=\"^([a-zA-Z\\u00C0-\\u017F']{0,}(\\s?)){0,}$\" title=\"Permitido somente letras e espaços\" placeholder=\"Nome e sobrenome\" value=\"{$resultado['nome_c']}\" required>".
                     "</label>".
                 "</div>".
                 "<div class=\"row\">".
                     "<label class=\"col \">CPF".
-                        "<input type=\"text\" class=\"cpf\" name=\"register-cpf\" pattern=\"(\\d{3})\\.?(\\d{3})\\.?(\\d{3})-?(\\d{2})\" title=\"CPF deve conter esse formato 000.000.000-00\"  placeholder=\"000.000.000-00\" required>".
+                        "<input type=\"text\" class=\"cpf\" name=\"register-cpf\" pattern=\"(\\d{3})\\.?(\\d{3})\\.?(\\d{3})-?(\\d{2})\" title=\"CPF deve conter esse formato 000.000.000-00\"  placeholder=\"000.000.000-00\" value=\"{$resultado['cpf_c']}\" required>".
                     "</label>".
                     "<label class=\"col \">CNH".
-                        "<input type=\"text\" name=\"register-cnh\" pattern=\"^[0-9]{11}$\" title=\"CNH deve conter 11 digitos\" placeholder=\"Nº de Registro (11 digitos)\" required>".
+                        "<input type=\"text\" name=\"register-cnh\" pattern=\"^[0-9]{11}$\" title=\"CNH deve conter 11 digitos\" placeholder=\"Nº de Registro (11 digitos)\" value=\"{$resultado['nome_c']}\" required>".
                     "</label>".
-                    "<label>Tipo".
-                        "<select name=\"register-tipo\">
-                            <option value=\"A\">A</option>
-                            <option value=\"B\">B</option>
-                            <option value=\"C\">C</option>
-                            <option value=\"D\">D</option>
-                            <option value=\"E\">E</option>
-                        </select>".
-                    "</label>".
+                    "<label>Tipo";?>
+                        <select name=\"register-tipo\">
+
+                            <option value=\"A\" <?php echo ($resultado['tipo_c'] == 'A')? 'selected':'' ?>>A</option>
+                            <option value=\"B\" <?php echo ($resultado['tipo_c'] == 'B')? 'selected':'' ?>>B</option>
+                            <option value=\"C\" <?php echo ($resultado['tipo_c'] == 'C')? 'selected':'' ?>>C</option>
+                            <option value=\"D\" <?php echo ($resultado['tipo_c'] == 'D')? 'selected':'' ?>>D
+                            <option value=\"E\" <?php echo ($resultado['tipo_c'] == 'E')? 'selected':'' ?>>D</option>
+
+                        </select>
+<?php
+                  echo "</label>".
                 "</div>".
                 "<div class=\"row\">".
                     "<label class=\"col \">Telefone".
@@ -167,13 +121,10 @@ if(isset($_GET['consulta-placa'])){
                     "</label>".
 
                 "</div>".
+                "<div class=\"row btn-right\">".
+                    "<button class=\"btn-default btn-save\">Atualizar</button>".
+                "</div>";
                 "</form>".
             "</section>";
-        }*/
-    }else{
-        echo "<p style='text-align: center'>Não foi possivel acessar os dados dessa placa, tente outra</p>";
     }
-    unset($_GET['buscar-consulta']);
 }
-?>
-

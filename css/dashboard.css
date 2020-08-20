@@ -21,6 +21,7 @@ section#content{
     flex-direction: column;
     align-items: center;
     padding-bottom: 50px;
+    position: relative;
 
 
 }
@@ -49,7 +50,7 @@ h2,h1{
 h2{
     margin-top: 30px !important;
 }
-.form-group h1, {
+.form-group h1, form-group h2 {
     font-size: 20px;
     margin: 20px 0;
 
@@ -70,11 +71,13 @@ h2{
 }
 #resultado{
     width: 100%;
+
 }
 #resultado >table {
     border-spacing: 0;
     width: 100%;
     margin-top: 30px;
+
 
 }
 .td-resultado {
@@ -102,6 +105,7 @@ h2{
     width: 100%;
     display: flex;
     align-items: center;
+    font-size: 14px;
 
 }
 
@@ -114,7 +118,53 @@ input[type="radio"]{
     margin-right: 15px;
 
 }
+.row label:last-of-type{
+    margin-right: 0;
 
+}
+.modal{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: white;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    border:1px solid rgba(0,0,0,.2);
+    display: none;
+
+
+
+
+}
+.modal-content{
+    width: 80%;
+    margin:0 auto;
+    padding: 10px;
+}
+.modal .title{
+    padding: 10px 0 10px 5px;
+    margin:0!important;
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin:0;
+
+}
+modal button{
+    border-radius: 100%;
+    border-style:none;
+    background-color: #ff3232;
+    font-size: 16px;
+    font-weight: 900;
+    color:white;
+    width: 30px;
+    height: 30px;
+    top:-10px;
+    right:-10px;
+    position: absolute;
+    outline: 0;
+}
 .row .col{
 
     flex-grow: 1;
@@ -161,17 +211,25 @@ form p{
     margin: 20px 0;
     width: 100%;
     display: flex;
-    padding: 0 15px;
+
 }
 .btn-right{
     justify-content: flex-end;
 }
+.btn-default-u:first-of-type{
+    margin-right: 10px;
+}
 .btn-default{
-
+    cursor:pointer;
     border-radius:4px;
     padding: 10px;
     border-style: none;
     display: inline-block;
+    font-weight: 700;
+
+}
+a{
+    text-decoration:none;
 }
 .td-flex{
     display: flex;
@@ -210,7 +268,41 @@ form p{
     background-color: #cd4848;
     color:white;
 }
+.btn-save-b{
+    border:2px solid #cd4848;
+    background-color:transparent;
+    color:#cd4848;
+}
+.pag{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    height: 30px;
 
+}
+.pag-group{
+    height: 100%;
+    display: flex;
+
+}
+.pag a{
+    padding: 0 10px 0 10px;
+    background-color: #bdbdbd;
+    display: flex;
+    color:black;
+    text-decoration: none;
+    height: 100%;
+    align-items: center;
+    margin-right:3px;
+}
+.pag a:active{
+    background-color: #8F2828;
+}
+.pag a:hover{
+
+    background-color: #a8a8a8;
+
+}
 @media screen and (max-width: 900px){
     .form-group{
         width: 90%;

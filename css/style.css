@@ -107,6 +107,7 @@ section#login-panel form #input-group .button-group{
 .right{
     justify-content: flex-end;
 }
+
 section#login-panel form #input-group .button-group button, .button-group a{
 
     width: 100px;

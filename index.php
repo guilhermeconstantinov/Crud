@@ -1,8 +1,9 @@
 <?php
+    require_once 'class/AutoLoad.php';
     session_start();
 
     if(isset($_SESSION['id'])){
-        header('location: dashboard/dashboard.php');
+        header('location: dashboard.php');
     }
 
 ?>

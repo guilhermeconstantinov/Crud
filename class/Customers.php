@@ -1,5 +1,6 @@
 <?php
 require_once 'Connect.php';
+
 abstract class CustomersDao{
     private $rua;
     private $num;
@@ -37,7 +38,7 @@ abstract class CustomersDao{
      */
     public function setRua($rua)
     {
-        $this->rua = $rua;
+        $this->rua = ucwords($rua);
     }
 
     /**
@@ -69,7 +70,7 @@ abstract class CustomersDao{
      */
     public function setBairro($bairro)
     {
-        $this->bairro = $bairro;
+        $this->bairro = ucwords($bairro);
     }
 
     /**
@@ -85,7 +86,7 @@ abstract class CustomersDao{
      */
     public function setCidade($cidade)
     {
-        $this->cidade = $cidade;
+        $this->cidade = ucwords($cidade);
     }
 
     /**
@@ -101,9 +102,9 @@ abstract class CustomersDao{
      */
     public function setEstado($estado)
     {
-        $this->estado = $estado;
+        $this->estado = strtoupper($estado);
     }
-    public function addEnd($param){
+    public function addEnd($param,$id){
 
         if($param == "company"){
             $sql = "Insert into endereco(rua,num,bairro,cidade,estado,id_emp) values(?,?,?,?,?,?)";
@@ -113,7 +114,7 @@ abstract class CustomersDao{
             $stmt->bindValue(3, $this->getBairro());
             $stmt->bindValue(4, $this->getCidade());
             $stmt->bindValue(5, $this->getEstado());
-            $stmt->bindValue(6, $this->getId());
+            $stmt->bindValue(6, $id);
             $stmt->execute();
 
         }
@@ -128,7 +129,7 @@ abstract class CustomersDao{
             $stmt->bindValue(5, $this->getEstado());
             $stmt->bindValue(6, null);
             $stmt->execute();
-            $this->setIdEnd(Connect::Conn()->lastInsertId());
+            return Connect::Conn()->lastInsertId();
         }
 
 
@@ -174,7 +175,7 @@ class Company extends CustomersDao
      */
     public function setNome($nome)
     {
-        $this->nome = $nome;
+        $this->nome = ucwords($nome);
     }
 
     /**
@@ -190,7 +191,7 @@ class Company extends CustomersDao
      */
     public function setNomeF($nome_f)
     {
-        $this->nome_f = $nome_f;
+        $this->nome_f = ucwords($nome_f);
     }
 
     /**
@@ -206,7 +207,7 @@ class Company extends CustomersDao
      */
     public function setCnpj($cnpj)
     {
-        $this->cnpj = $cnpj;
+        $this->cnpj = ucwords($cnpj);
     }
 
     /**
@@ -238,7 +239,7 @@ class Company extends CustomersDao
      */
     public function setResp($resp)
     {
-        $this->resp = $resp;
+        $this->resp = ucwords($resp);
     }
 
     public function readCompany($cnpj)
@@ -254,18 +255,6 @@ class Company extends CustomersDao
         return 0;
     }
 
-    public function registerCustomers(Company $company, Customers $customers, Vehicle $vehicle){
-
-        if($company->addCompany()){
-            $company->addEnd("company");
-        }
-        $customers->addEnd("customers");
-
-        $id_c= $customers->addCustomer($company->getId());
-
-        $vehicle->addVehicle($id_c);
-    }
-
     public function addCompany(){
         $sql = "Insert into empresa(nome_emp,nome_f,cnpj_emp,tel_emp,resp_emp) values(?,?,?,?,?)";
         $stmt = Connect::Conn()->prepare($sql);
@@ -279,12 +268,13 @@ class Company extends CustomersDao
         
         if (!$result) {
             $stmt->execute();
+            $lastId = Connect::Conn()->lastInsertId();
+            $this->addEnd("company",$lastId);
+            return $lastId;
 
-            $this->setId(Connect::Conn()->lastInsertId());
-            return 1;
 
         }else{
-            $this->setId($result[0]['id_emp']);
+            return $result[0]['id_emp'];
         }
 
         return 0;
@@ -304,32 +294,90 @@ class Customers extends CustomersDao{
 
 
     public function addCustomer($id_emp){
-        $sql = "Insert into clientes(nome_c,cpf_c,cnh_c,tel,tipo_c,id_emp,id_end) values(?,?,?,?,?,?,?)";
-        $stmt = Connect::Conn()->prepare($sql);
-        $stmt->bindValue(1, $this->getNomeC());
-        $stmt->bindValue(2, $this->getCpfC());
-        $stmt->bindValue(3, $this->getCnhC());
-        $stmt->bindValue(4, $this->getTel());
-        $stmt->bindValue(5, $this->getTipoC());
-        $stmt->bindValue(6, $id_emp);
-        $stmt->bindValue(7, $this->getIdEnd());
+        if(!$this->readCustomer()){
+            $lastId = $this->addEnd("customers",false);
+            $sql = "Insert into clientes(nome_c,cpf_c,cnh_c,tel,tipo_c,id_emp,id_end) values(?,?,?,?,?,?,?)";
+            $stmt = Connect::Conn()->prepare($sql);
+            $stmt->bindValue(1, $this->getNomeC());
+            $stmt->bindValue(2, $this->getCpfC());
+            $stmt->bindValue(3, $this->getCnhC());
+            $stmt->bindValue(4, $this->getTel());
+            $stmt->bindValue(5, $this->getTipoC());
+            $stmt->bindValue(6, $id_emp);
+            $stmt->bindValue(7, $lastId);
+            $stmt->execute();
+            return Connect::Conn()->lastInsertId();
+        }
 
+
+    }
+    public function readCustomer(){
+        $sql = "select COUNT(cpf_c) from clientes where cpf_c = ?";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1,$this->getCpfC());
         $stmt->execute();
-        return Connect::Conn()->lastInsertId();
+        $result = $stmt->fetchColumn(0);
+        if($result > 0){
+            return $result;
+        }
+
+
+        return 0;
     }
 
-    public function readCustomers($placa)
-    {
-
-        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa, empresa.nome_emp, empresa.nome_f, empresa.cnpj_emp,empresa.tel_emp, empresa.resp_emp, end_empresa.cidade as cidade_emp,end_empresa.estado as estado_emp, end_empresa.rua as rua_emp, end_empresa.num as num_emp, end_empresa.bairro as bairro_emp   from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp where carros.placa = ?";
+    public function updateCustomers(Vehicle $vehicle){
+        $sql = "update clientes join endereco on clientes.id_end = endereco.id_end join carros on clientes.id_c = carros.id_c set clientes.nome_c = ?, clientes.cpf_c = ?, clientes.cnh_c = ?, clientes.tel = ?, clientes.tipo_c = ?,endereco.rua = ?, endereco.bairro = ? ,endereco.cidade = ?, endereco.estado = ?, carros.marca = ?, carros.modelo = ?, carros.ano = ?, carros.placa = ?, carros.cor = ? where clientes.id_c = ?";
+        $stmt= Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1,$this->getNomeC());
+        $stmt->bindValue(2,$this->getCpfC());
+        $stmt->bindValue(3,$this->getCnhC());
+        $stmt->bindValue(4,$this->getTel());
+        $stmt->bindValue(5,$this->getTipoC());
+        $stmt->bindValue(6,$this->getRua());
+        $stmt->bindValue(7,$this->getBairro());
+        $stmt->bindValue(8,$this->getCidade());
+        $stmt->bindValue(9,$this->getEstado());
+        $stmt->bindValue(10, $vehicle->getMarca());
+        $stmt->bindValue(11, $vehicle->getModelo());
+        $stmt->bindValue(12, $vehicle->getAno());
+        $stmt->bindValue(13, $vehicle->getPlaca());
+        $stmt->bindValue(14, $vehicle->getCor());
+        $stmt->bindValue(15, $this->getIdC());
+        $stmt->execute();
+        $_SESSION['consult'] = 'Dados atualizados com sucesso';
+    }
+    public function readCustomerId($id){
+        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa  from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp where clientes.id_c= ?";
         $stmt = Connect::Conn()->prepare($sql);
-        $stmt->bindValue(1, $placa);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        }
+    }
+    public function readCustomersAll($pag){
+        $pag = (int)$pag - 1;
+        $pag = $pag*10;
+        $pagEnd = $pag+10;
+
+        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa, empresa.nome_emp, empresa.nome_f, empresa.cnpj_emp,empresa.tel_emp, empresa.resp_emp, end_empresa.cidade as cidade_emp,end_empresa.estado as estado_emp, end_empresa.rua as rua_emp, end_empresa.num as num_emp, end_empresa.bairro as bairro_emp   from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp LIMIT {$pag},{$pagEnd}";
+        $stmt = Connect::Conn()->prepare($sql);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         return 0;
     }
+    public function countCustomersAll(){
+        $sql = "select count(clientes.id_c) from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchColumn(0);
+        if($result>0){
+            return $result;
+        }
+    }
+
     public function deleteCustomers($id){
         $sql = "delete from carros where id_c = ?";
         $stmt = Connect::Conn()->prepare($sql);
