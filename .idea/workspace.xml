@@ -4,8 +4,6 @@
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Customers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/form-consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-consult.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ze" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Crud - Copia" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -110,7 +108,7 @@
       <workItem from="1597973223159" duration="5713000" />
       <workItem from="1598001159495" duration="9138000" />
       <workItem from="1598014686424" duration="15000" />
-      <workItem from="1598018274474" duration="868000" />
+      <workItem from="1598018274474" duration="1532000" />
     </task>
     <servers />
   </component>
@@ -138,10 +136,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="454" y="292" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1596825235465" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597638487814">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1598020227486">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597638487814" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598020227486" />
     <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597345035461">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
