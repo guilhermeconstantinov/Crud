@@ -19,5 +19,6 @@ if(isset($_POST['submit-register'])){
     $user->setName($_POST['register-name']);
     $user->setEmail($_POST['register-email']);
     $user->setPassword($_POST['register-password']);
+    $user->setConfirm($_POST['register-confirm']);
     $user->create();
 }

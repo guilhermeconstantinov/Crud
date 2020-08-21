@@ -16,8 +16,6 @@
         <?php
         echo (isset($_SESSION['register'])) ? $_SESSION['register'] : '';
         unset($_SESSION['register']); ?>
-
-        ?>
     </p>
 
 </form>

@@ -120,6 +120,7 @@
             }else{
                 $_SESSION['register'] = "Usuário já existe";
             }
+            header('location: ../index.php');
 
             return 1;
         }
