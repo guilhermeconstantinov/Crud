@@ -391,6 +391,11 @@ class Customers extends CustomersDao{
         $stmt = Connect::Conn()->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
+        $sql = "Select id_end from carros where id_c = ?";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+        $idend = $stmt->fetchColumn(0);
         $sql = "delete from clientes where id_c = ?";
         $stmt = Connect::Conn()->prepare($sql);
         $stmt->bindValue(1, $id);

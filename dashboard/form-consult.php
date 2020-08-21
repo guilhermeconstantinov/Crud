@@ -1,5 +1,5 @@
 <?php require_once 'class/AutoLoad.php'?>
-<?php if(!$user->getAdmin()): header('location: dashboard.php');endif;?>
+
 
 <section class="form-group">
 
