@@ -12,8 +12,8 @@
     </header>
 
     <nav id="menu">
-        <ul>
-            <li id="btn-add"><a href="?r=add-cliente">Adicionar acesso</a></li>
+
+            <?php if ($user->getAdmin()):?><li id="btn-add"><a href="?r=add-cliente">Adicionar acesso</a></li><?php endif;?>
             <li><span class="profile-icon"></span><a href="?r=perfil">Meu Perfil</a></li>
             <li><span class="consult-icon"></span><a href="?r=consulta">Consultar acesso</a></li>
             <li><span class="logout-icon"></span><a href="?f=deslogar">Deslogar</a></li>

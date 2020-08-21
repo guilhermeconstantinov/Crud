@@ -320,8 +320,16 @@ class Customers extends CustomersDao{
         if($result > 0){
             return $result;
         }
-
-
+        return 0;
+    }
+    public function readCustomersCarPlate($carPlate){
+        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa, empresa.nome_emp, empresa.nome_f, empresa.cnpj_emp,empresa.tel_emp, empresa.resp_emp, end_empresa.cidade as cidade_emp,end_empresa.estado as estado_emp, end_empresa.rua as rua_emp, end_empresa.num as num_emp, end_empresa.bairro as bairro_emp   from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp where carros.placa = ?";
+        $stmt = Connect::Conn()->prepare($sql);
+        $stmt->bindValue(1, $carPlate);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        }
         return 0;
     }
 
@@ -347,7 +355,7 @@ class Customers extends CustomersDao{
         $_SESSION['consult'] = 'Dados atualizados com sucesso';
     }
     public function readCustomerId($id){
-        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa  from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp where clientes.id_c= ?";
+        $sql = "select clientes.id_c, clientes.nome_c, clientes.cpf_c, clientes.cnh_c, clientes.tipo_c, clientes.tel, end_cliente.cidade as cidade_c, end_cliente.estado as estado_c, end_cliente.rua as rua_c, end_cliente.num as num_c, end_cliente.bairro as bairro_c, carros.marca, carros.modelo, carros.ano, carros.cor, carros.placa, empresa.nome_emp, empresa.cnpj_emp,empresa.tel_emp,end_empresa.cidade as cidade_emp,end_empresa.estado as estado_emp,end_empresa.rua as rua_emp,end_empresa.num as num_emp,end_empresa.bairro as bairro_emp      from clientes join carros on carros.id_c = clientes.id_c join empresa on clientes.id_emp = empresa.id_emp join endereco end_cliente on end_cliente.id_end = clientes.id_end join endereco end_empresa on end_empresa.id_emp = empresa.id_emp where clientes.id_c= ?";
         $stmt = Connect::Conn()->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
@@ -417,7 +425,7 @@ class Customers extends CustomersDao{
      */
     public function setNomeC($nome_c)
     {
-        $this->nome_c = $nome_c;
+        $this->nome_c = ucwords($nome_c);
     }
 
     /**
@@ -541,7 +549,7 @@ class Vehicle{
      */
     public function setMarca($marca)
     {
-        $this->marca = $marca;
+        $this->marca = ucwords($marca);
     }
 
     /**
@@ -573,7 +581,7 @@ class Vehicle{
      */
     public function setModelo($modelo)
     {
-        $this->modelo = $modelo;
+        $this->modelo = ucwords($modelo);
     }
 
     /**
@@ -589,7 +597,7 @@ class Vehicle{
      */
     public function setPlaca($placa)
     {
-        $this->placa = $placa;
+        $this->placa = ucwords($placa);
     }
 
     /**
@@ -605,7 +613,7 @@ class Vehicle{
      */
     public function setCor($cor)
     {
-        $this->cor = $cor;
+        $this->cor = ucwords($cor);
     }
 
     /**

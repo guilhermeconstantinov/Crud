@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8ee7fc2-5b73-4542-b3d5-0282633c1c9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/CustomersDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/CustomersDao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Customers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/consult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/consult.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/form-add.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/form-consult.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/form-consult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/panel-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/panel-dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +49,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ze" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -107,6 +114,9 @@
       <workItem from="1597829753868" duration="24416000" />
       <workItem from="1597857542166" duration="231000" />
       <workItem from="1597865881462" duration="10000" />
+      <workItem from="1597962632169" duration="3777000" />
+      <workItem from="1597973223159" duration="5713000" />
+      <workItem from="1598001159495" duration="7934000" />
     </task>
     <servers />
   </component>
@@ -190,14 +200,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1597005887910" />
-    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1597841969657">
+    <state x="540" y="401" key="NewPhpFileDialog" timestamp="1598008364778">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597841969657" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1597742703197">
+    <state x="540" y="401" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1598008364778" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1598001718290">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597742703197" />
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1598001718290" />
     <state x="0" y="26" width="780" height="716" key="dock-window-1" timestamp="1597631052256">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -206,9 +216,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1597325426296" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597601170469">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598001657793">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597601170469" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598001657793" />
   </component>
 </project>

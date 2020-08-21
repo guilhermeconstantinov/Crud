@@ -73,28 +73,34 @@ h2{
     width: 100%;
 
 }
-#resultado >table {
-    border-spacing: 0;
-    width: 100%;
-    margin-top: 30px;
 
-
-}
 .td-resultado {
+    width:100%!important;
     border-spacing: 0;
     margin-top:20px;
     border-collapse: collapse;
 
 }
 
-.td-resultado tr td{
+.td-resultado > tr td{
     border:1px solid black;
-}
-.td-resultado tr td{
     padding: 5px;
 }
+.modal-content{
+    min-height: 100vh;
+    position: relative;
+}
+.modal-btn{
+    position: absolute;
+    bottom:0;
+    right: 10px;
+}
+.modal-content > table tr td {
+    text-align: left;
+    padding: 5px 10px 5px 0;
+}
 
-#resultado  table tr > th, #resultado table tr > td{
+.td-resultado  tr  th, .td-resultado  tr > td{
     padding: 5px;
     border-bottom:1px solid gray;
     text-align: center;
@@ -135,13 +141,12 @@ input[type="radio"]{
     display: none;
 
 
-
-
 }
 .modal-content{
     width: 80%;
     margin:0 auto;
     padding: 10px;
+
 }
 .modal .title{
     padding: 10px 0 10px 5px;
@@ -216,9 +221,7 @@ form p{
 .btn-right{
     justify-content: flex-end;
 }
-.btn-default-u:first-of-type{
-    margin-right: 10px;
-}
+
 .btn-default{
     cursor:pointer;
     border-radius:4px;
@@ -226,14 +229,20 @@ form p{
     border-style: none;
     display: inline-block;
     font-weight: 700;
+    margin-right:10px;
 
+}
+.btn-default-u:last{
+    margin-right: 0;
+    margin-left: 10px;
 }
 a{
     text-decoration:none;
 }
 .td-flex{
-    display: flex;
+
     justify-content: space-around;
+    min-width: 100px;
 }
 .btn-edit{
    background-color: #eab92c;

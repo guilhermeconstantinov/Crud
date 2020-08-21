@@ -1,12 +1,14 @@
-<?php require_once 'class/AutoLoad.php';?>
+<?php require_once 'class/AutoLoad.php'?>
+<?php if(!$user->getAdmin()): header('location: dashboard.php');endif;?>
+
 <section class="form-group">
 
     <h1>Consultar acesso</h1>
-    <form id="form-consulta" action="" method="GET">
-
+    <form id="form-consulta" action="?r=consulta" method="GET">
+        <input type="hidden" name="r" value="consulta">
         <div class="row">
             <label class="col col-1">
-                <input type="text" id="input-consulta" pattern="[a-zA-Z0-9]{7}" title="formato esperado 000.000.000/0000-00" name="consulta-placa" placeholder="Digite o Placa"  required>
+                <input type="text" id="input-consulta" pattern="[a-zA-Z0-9]{7}" title="formato CKV0809" name="consulta-placa" placeholder="Digite o Placa"  required>
             </label>
             <label>
                 <button type="submit" id="btn-consulta" name="buscar-consulta" value="buscar" class="btn-default btn-save">Procurar</button>
@@ -15,8 +17,45 @@
 
     </form>
     <div id="resultado">
+        <?php
+            if(isset($_GET['consulta-placa'])):
+            $customers = new Customers();
+            $value = $customers->readCustomersCarPlate($_GET['consulta-placa']);
+        ?>
+            <?php if($value):?>
+            <table class="td-resultado">
+                    <tr>
+                        <th>Nome do usuário</th>
+                        <th>CPF</th>
+                        <th>Placa do carro</th>
+                        <th>Modelo</th>
+                        <th>Empresa</th>
+                        <th>Ações</th>
+                    </tr>
 
-        <?php if(!isset($_GET['id']) || (isset($_GET['id']) && $_GET['id']!="")):
+                    <tr>
+                        <td><?php echo $value['nome_c'];?></td>
+                        <td><?php echo $value['cpf_c'];?></td>
+                        <td><?php echo $value['placa'];?></td>
+                        <td><?php echo $value['modelo'];?></td>
+                        <td><?php echo $value['nome_emp'];?></td>
+                        <td class='td-flex'>
+                    <?php if ($user->getAdmin()):?>
+
+                        <a  class='btn-default btn-edit update' href='?r=consulta&id=<?php echo $value['id_c']."&"?><?php echo isset($_GET['consulta-placa'])?'consulta-placa='.$_GET['consulta-placa']:'';?>&f=update'> <a class='btn-default btn-visu' href='?r=consulta&id=<?php echo $value['id_c'];?>&f=ver'></a><a class='btn-default btn-del' href='?r=consulta&id=<?php echo $value['id_c'];?>&f=del'></a>
+                    <?php  else: ?>
+                        <a class='btn-default btn-visu' href='?r=consulta&id=<?php echo $value['id_c'];?>&f=ver'></a>
+
+                    <?php endif; ?>
+                    </td>
+                </tr>
+
+            </table>
+
+            <?php else: echo "<p style=\"text-align:center\">Nada foi encontrado no sistema</p>"; endif;?>
+        <?php else: ?>
+
+        <?php
             $customers =  new Customers();
             $numRow = $customers->countCustomersAll();
 
@@ -29,7 +68,7 @@
         ?>
 
         <?php if($result):?>
-        <table>
+        <table class="td-resultado">
             <tr>
                 <th>Nome do usuário</th>
                 <th>CPF</th>
@@ -49,9 +88,9 @@
                 <td class='td-flex'>
             <?php if ($user->getAdmin()):?>
 
-                    <a  class='btn-default btn-edit update' href='?r=consulta&id=<?php echo$value['id_c'];?>&f=update'></a><a class='btn-default btn-visu' href='?id=<?php echo $value['id_c'];?>&f=ver'><a class='btn-default btn-del' href='?id=<?php echo $value['id_c'];?>&f=del'></a>
+                    <a  class='btn-default btn-edit update' href='?r=consulta&id=<?php echo $value['id_c']?>&f=update'></a><a class='btn-default btn-visu' href='?r=consulta&id=<?php echo $value['id_c']?>&f=ver'><a class='btn-default btn-del' href='?r=consulta&id=<?php echo $value['id_c'];?>&f=del'></a>
             <?php  else: ?>
-                    <a class='btn-default btn-visu' href='?id=<?php echo $value['id_c'];?>&f=ver'></a>";
+                    <a class='btn-default btn-visu' href='?r=consulta&id=<?php echo $value['id_c'];?>&f=ver'></a>
 
             <?php endif; ?>
                         </td>
@@ -61,11 +100,11 @@
         </table>
             <div class="pag">
                 <div class="pag-group">
-                <?php  for($i=1;$i<=ceil(($numRow/10));$i++):?>
+                <?php if($numRow>10): for($i=1;$i<=ceil(($numRow/10));$i++):?>
 
                 <a href="?r=consulta&pag=<?php echo $i;?>"><?php echo $i?></a>
 
-                <?php endfor;?>
+                <?php endfor;endif;?>
                 </div>
             </div>
         <?php endif;?>
@@ -73,11 +112,12 @@
     <?php endif;?>
         <div class="modal">
 
-            <div class="modal-content">
-                <?php if(isset($_GET['f']) && $_GET['f']== 'update'&& $_GET['id']):
+            <?php if(isset($_GET['f']) && $_GET['f']== 'update'&& $_GET['id']):
                 $result = $customers->readCustomerId($_GET['id']);
 
                 ?>
+            <div class="modal-content">
+
 
                 <form id="form-cadastro" action="controller/customers_op.php" method="post">
                     <h2>Dados do usuário</h2>
@@ -150,7 +190,7 @@
 
                     </div>
                     <div class="row">
-                        <div class="btn-group btn-right">
+                        <div class="btn-group btn-right modal-btn">
                             <a class="closeModal btn-default btn-default-u  btn-save-b" href="?r=consulta">Voltar</a>
                             <button name="submit-update" class="btn-default btn-default-u btn-save">Salvar</button>
                         </div>
@@ -158,7 +198,85 @@
                     </div>
 
             </div>
-    <?php endif;?>
+
+            <?php elseif(isset($_GET['f']) && $_GET['f'] == 'del'&& $_GET['id']):
+                $customers->deleteCustomers($_GET['id']);
+                header('location: dashboard.php?r=consulta');
+
+            ?>
+            <?php elseif(isset($_GET['f']) && $_GET['f']== 'ver'&& $_GET['id']):
+                    $resultado = $customers->readCustomerId($_GET['id']);
+            ?>
+
+                <div class="modal-content">
+                    <h1>Informações </h1>
+                    <h2>Dados sobre o Cliente</h2>
+                    <table>
+                        <tr>
+                            <td colspan="3">Cliente: <?php echo $resultado['nome_c']?></td>
+                        </tr>
+                        <tr>
+                            <td>CPF: <?php echo $resultado['cpf_c']?>
+                            <td>CNH: <?php echo $resultado['cnh_c']?></td>
+                            <td>Tipo: <?php echo $resultado['tipo_c']?></td>
+                        </tr>
+                        <tr>
+                            <td>Tel: <?php echo $resultado['tel']?>
+                            <td colspan="2">Cidade: <?php echo $resultado['cidade_c'].'-'.$resultado['estado_c']?></td>
+                        </tr>
+                        <tr>
+                            <td>Endereço: <?php echo $resultado['rua_c'].", Nº".$resultado['num_c']?></td>
+                            <td>Bairro: <?php echo $resultado['bairro_c']?></td>
+                        </tr>
+
+                    </table>
+                    <h2>Dados do veiculo</h2>
+                    <table>
+                        <tr>
+                            <td colspan="1">Marca: <?php echo $resultado['marca']?></td>
+                            <td>Modelo: <?php echo $resultado['modelo']?>
+                            <td>Ano: <?php echo $resultado['ano']?>
+                        </tr>
+                        <tr>
+                            <td>Cor: <?php echo $resultado['cor']?>
+                            <td colspan="2">Placa: <?php echo $resultado['placa']?></td>
+
+                        </tr>
+
+                    </table>
+                    <h2>Empresa Vinculada</h2>
+                    <table>
+                        <tr>
+                            <td>Empresa: <?php echo $resultado['nome_emp']?>
+                            <td>CNPJ: <?php echo $resultado['cnpj_emp']?></td>
+
+                        </tr>
+                        <tr>
+                            <td>Tel: <?php echo $resultado['tel_emp']?>
+                            <td>Cidade: <?php echo $resultado['cidade_emp'].'-'.$resultado['estado_emp'];?></td>
+
+                        </tr>
+                        <tr>
+                            <td>Endereço: <?php echo $resultado['rua_emp'].','.$resultado['num_emp']?>
+                            <td>Bairro: <?php echo $resultado['bairro_emp'];?></td>
+
+                        </tr>
+
+                    </table>
+                    <div class="row modal-btn">
+                        <div class="btn-group btn-right">
+                            <a class="closeModal btn-default btn-default-u  btn-save-b" href="?r=consulta">Voltar</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            <?php endif;?>
+
+
     </div>
 
 </section>
+
+
+

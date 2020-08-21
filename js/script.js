@@ -1,7 +1,7 @@
 window.onload = function(){
+
     function hideShow(element){
-        console.log(element);
-        if(element.style.display == 'block'){
+        if(element.style.display === 'block'){
             element.style.display = 'none';
         }else{
             element.style.display = 'block';
@@ -9,9 +9,9 @@ window.onload = function(){
     }
 
     //Botão para esconder o menu
-    var btn =  document.querySelector("#group-header .btn-resp");
-    var menu = document.querySelector("#menu");
-    btn.addEventListener('click', e=>{
+    let btn =  document.querySelector("#group-header .btn-resp");
+    let menu = document.querySelector("#menu");
+    btn.addEventListener('click', ()=>{
         hideShow(menu);
     });
 
@@ -26,13 +26,16 @@ window.onload = function(){
 
     }
     var modal = document.querySelector(".modal");
-    document.querySelector('.closeModal').addEventListener('click',function(){
+    var btnClose = document.querySelector('.closeModal')
+    btnClose.addEventListener('click',function(){
         hideShow(modal);
     });
 
     var urlCurrent = document.URL;
-    if(urlCurrent.indexOf('update')){
+    if( urlCurrent.indexOf('ver') || urlCurrent.indexOf('update')){
+        console.log('entrei');
         hideShow(modal);
+
     }
 
 
@@ -41,7 +44,7 @@ window.onload = function(){
 
 function FormData(str){
 
-    var http = new XMLHttpRequest();
+    let http = new XMLHttpRequest();
     http.responseType = "json";
     http.onreadystatechange = function(){
         if(this.readyState === 4 && this.status === 200){
