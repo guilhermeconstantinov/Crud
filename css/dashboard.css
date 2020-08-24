@@ -1,0 +1,332 @@
+*{margin:0;padding: 0;box-sizing: border-box;font-family: "Segoe UI",sans-serif;}
+
+
+div#container{
+
+    display: flex;
+
+}
+
+#menu-lateral{
+    position: relative;
+    min-width: 250px;
+
+}
+
+section#content{
+    background-color: white;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    position: relative;
+
+
+}
+
+
+/*ESTILOS DO FORMULARIO*/
+.form-group{
+
+    width: 70%;
+
+
+}
+.form-group-100{
+    width: 100%;
+}
+form hr{
+    width: 30%;
+    margin: 20px auto;
+    border-color: #cd4848;
+
+}
+h2,h1{
+    width: 100%;
+
+}
+h2{
+    margin-top: 30px !important;
+}
+.form-group h1, form-group h2 {
+    font-size: 20px;
+    margin: 20px 0;
+
+}
+.form-group h2{
+    font-size: 15px;
+    margin: 10px 0;
+}
+.form-group input, .form-group select{
+
+    width: 100%;
+    height: 35px;
+    margin: 10px 0;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline-color: rgba(143, 40, 40,0.8);
+
+}
+#resultado{
+    width: 100%;
+
+}
+
+.td-resultado {
+    width:100%!important;
+    border-spacing: 0;
+    margin-top:20px;
+    border-collapse: collapse;
+
+}
+
+.td-resultado > tr td{
+    border:1px solid black;
+    padding: 5px;
+}
+.modal-content{
+    min-height: 100vh;
+    position: relative;
+}
+.modal-btn{
+    position: absolute;
+    bottom:0;
+    right: 10px;
+}
+.modal-content > table tr td {
+    text-align: left;
+    padding: 5px 10px 5px 0;
+}
+
+.td-resultado  tr  th, .td-resultado  tr > td{
+    padding: 5px;
+    border-bottom:1px solid gray;
+    text-align: center;
+    font-size: 14px;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+}
+
+input[type="radio"]{
+    width: 15px;
+    height: 15px;
+    margin-right:10px;
+}
+.row label{
+    margin-right: 15px;
+
+}
+.row label:last-of-type{
+    margin-right: 0;
+
+}
+.modal{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: white;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    border:1px solid rgba(0,0,0,.2);
+    display: none;
+
+
+}
+.modal-content{
+    width: 80%;
+    margin:0 auto;
+    padding: 10px;
+
+}
+.modal .title{
+    padding: 10px 0 10px 5px;
+    margin:0!important;
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin:0;
+
+}
+modal button{
+    border-radius: 100%;
+    border-style:none;
+    background-color: #ff3232;
+    font-size: 16px;
+    font-weight: 900;
+    color:white;
+    width: 30px;
+    height: 30px;
+    top:-10px;
+    right:-10px;
+    position: absolute;
+    outline: 0;
+}
+.row .col{
+
+    flex-grow: 1;
+    flex-basis:auto;
+
+}
+.col-1{
+    width: 9%;
+}
+.col-2{
+    width: 18%;
+    flex-grow:0;
+    flex-basis: auto;
+}
+.col-3{
+    width: 27%;
+    flex-grow:0;
+    flex-basis: auto;
+}
+.col-4{
+    width: 36%!important;
+    flex-grow:0;
+    flex-basis: auto;
+}
+.col-5{
+    width: 45%;
+}
+.col-6{
+    width: 55%;
+    flex-grow: 0 !important;
+    flex-basis: auto !important;
+}
+.col-12{
+    width: 100%;
+}
+
+
+form p{
+    margin: 20px 0;
+    width: 100%;
+}
+
+.btn-group{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+
+}
+.btn-right{
+    justify-content: flex-end;
+}
+
+.btn-default{
+    cursor:pointer;
+    border-radius:4px;
+    padding: 10px;
+    border-style: none;
+    display: inline-block;
+    font-weight: 700;
+    margin-right:10px;
+
+}
+.btn-default-u:last{
+    margin-right: 0;
+    margin-left: 10px;
+}
+a{
+    text-decoration:none;
+}
+.td-flex{
+
+    justify-content: space-around;
+    min-width: 100px;
+}
+.btn-edit{
+   background-color: #eab92c;
+    width:30px;
+    height: 30px;
+    background-image: url('../img/pencil.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+
+.btn-visu{
+    background-color: #629732;
+    width:30px;
+    height: 30px;
+    background-image: url('../img/vision.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+.btn-del{
+    background-color: #b82020;
+    width:30px;
+    height: 30px;
+    background-image: url('../img/delete.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+
+}
+.btn-save{
+    background-color: #cd4848;
+    color:white;
+}
+.btn-save-b{
+    border:2px solid #cd4848;
+    background-color:transparent;
+    color:#cd4848;
+}
+.pag{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+
+}
+.pag-group{
+    height: 100%;
+    display: flex;
+
+}
+.pag a{
+    padding: 0 10px 0 10px;
+    background-color: #bdbdbd;
+    display: flex;
+    color:black;
+    text-decoration: none;
+    height: 100%;
+    align-items: center;
+    margin-right:3px;
+}
+.pag a:active{
+    background-color: #8F2828;
+}
+.pag a:hover{
+
+    background-color: #a8a8a8;
+
+}
+@media screen and (max-width: 900px){
+    .form-group{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 780px) {
+    div#container{
+
+        flex-direction: column;
+
+    }
+    #menu-lateral{
+        width: 100%;
+    }
+
+
+
+}

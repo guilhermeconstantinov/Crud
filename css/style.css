@@ -1,12 +1,13 @@
-*{margin:0;padding: 0;box-sizing: border-box}
+*{margin:0;padding: 0;box-sizing: border-box;font-family: "Segoe UI",sans-serif;}
 
 body{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     z-index: -1000;
-    font-family: "Segoe UI",sans-serif;
+
 
 }
 div#container {
@@ -16,6 +17,7 @@ div#container {
     position: absolute;
     box-shadow:  -5px 10px 20px rgba(0,0,0,.38);
     z-index: 0;
+
 }
 
 div#container:after{
@@ -87,18 +89,26 @@ section#login-panel form #input-group input{
     margin-bottom: 10px;
     padding-left: 10px;
     box-sizing: border-box;
+    outline-color: rgba(143, 40, 40,0.8);
 
 }
 
-section#login-panel form #input-group #button-group{
+section#login-panel form #input-group .button-group{
     display: flex;
-    justify-content: space-between;
     width: 100%;
     margin-top:10px;
 
 
+
 }
-section#login-panel form #input-group #button-group button, #button-group a{
+.space-b{
+    justify-content: space-between;
+}
+.right{
+    justify-content: flex-end;
+}
+
+section#login-panel form #input-group .button-group button, .button-group a{
 
     width: 100px;
     height: 35px;
@@ -121,6 +131,29 @@ section#login-panel form #input-group #button-group button, #button-group a{
     border:2px solid #AC3B3B;
     background-color:white;
     color:#AC3B3B;
+}
+
+@media screen and (max-width:900px) {
+    div#container{
+        width: 90%;
+
+    }
+
+}
+@media screen and (max-width:500px) {
+    section#login-panel{
+        width: 100%;
+        height: 100%;
+
+    }
+    div#container{
+        width: 100%;
+        height: 100%;
+    }
+
+    section#login-panel form #input-group{
+        width: 60%;
+    }
 }
 
 
