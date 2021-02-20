@@ -1,7 +1,7 @@
 # Crud
 
-<<<<<<< HEAD
-##Objetivo: Controlar o acesso de pessoas a um determinado local
+
+## Objetivo: Controlar o acesso de pessoas a um determinado local
 
 
 Antes de iniciar o projeto criar o banco de dados usando o arquivo **.sql**
