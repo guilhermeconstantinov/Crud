@@ -7,7 +7,6 @@
 Antes de iniciar o projeto criar o banco de dados usando o arquivo **.sql**
 =======
 ## Objetivo: Controlar o acesso de pessoas a um determinado local
->>>>>>> bbda19973c94d2e7ee0701fb08b8ba878321930d
 
 **Recomendações:**
 
